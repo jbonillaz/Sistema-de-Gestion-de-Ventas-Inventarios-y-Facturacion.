@@ -7,6 +7,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+  <link rel="icon" href="views/img/template/icono-negro.png">
+  
   <!--========================================
   =         Plugin of CSS          =
   =============================================-->
@@ -82,7 +84,7 @@ include "modulos/menu.php";
        $_GET["ruta"] == "salir"){
 
       include "modulos/".$_GET["ruta"].".php";
-
+    /**En caso de no encontrar ninguna de las vistas */
     }else{
 
       include "modulos/404.php";
@@ -94,6 +96,7 @@ include "modulos/menu.php";
     include "modulos/inicio.php";
 
   }
+
 
   /*========================================
   =         Include for footer        =
