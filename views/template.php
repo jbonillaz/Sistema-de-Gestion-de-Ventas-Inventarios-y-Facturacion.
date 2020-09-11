@@ -64,10 +64,36 @@ include "modulos/cabezote.php";
   =============================================*/
 include "modulos/menu.php";
 
-/*========================================
-  =         Include for menu         =
+/*===============================================
+  =  Vistas, los controladores y los modelos,
+  de esta manera se configuran las vistas para el 
+  sistema general.=
   =============================================*/
-  include "modulos/contenido.php";
+  if(isset($_GET["ruta"])){
+
+    if($_GET["ruta"] == "inicio" ||
+       $_GET["ruta"] == "usuarios" ||
+       $_GET["ruta"] == "categorias" ||
+       $_GET["ruta"] == "productos" ||
+       $_GET["ruta"] == "clientes" ||
+       $_GET["ruta"] == "ventas" ||
+       $_GET["ruta"] == "crear-venta" ||
+       $_GET["ruta"] == "reportes" ||
+       $_GET["ruta"] == "salir"){
+
+      include "modulos/".$_GET["ruta"].".php";
+
+    }else{
+
+      include "modulos/404.php";
+
+    }
+
+  }else{
+
+    include "modulos/inicio.php";
+
+  }
 
   /*========================================
   =         Include for footer        =
