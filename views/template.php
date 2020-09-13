@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,11 +55,15 @@
 <!--========================================
   =         Documents Body          =
   =============================================-->
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
 <!-- Site wrapper -->
-<div class="wrapper">
-  
+
 <?php
+
+ if(isset($_SESSION["login"]) && $_SESSION["login"] == "ok"){
+
+  echo '<div class="wrapper">';
+
 /*========================================
   =         Include for bigheader          =
   =============================================*/
@@ -103,10 +111,15 @@ include "modulos/menu.php";
   =============================================*/
 
   include "modulos/footer.php";
+
+  echo '</div>';
+
+  }else{
+
+    include "modulos/login.php";
+
+  }
 ?>
-  
-  
-</div>
 <!-- ./wrapper -->
 <script src="views/js/template.js"></script>
 </body>

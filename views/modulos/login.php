@@ -4,7 +4,7 @@
   
   <div class="login-logo">
 
-    <img src="vistas/img/plantilla/logo-blanco-bloque.png" class="img-responsive" style="padding:30px 100px 0px 100px">
+    <img src="views/img/template/logo-blanco-bloque.png" class="img-responsive" style="padding:30px 100px 0px 100px">
 
   </div>
 
@@ -40,8 +40,8 @@
 
       <?php
 
-        $login = new ControladorUsuarios();
-        $login -> ctrIngresoUsuario();
+        $login = new ControllersUsers();
+        $login -> ctrUserLogin();
         
       ?>
 
