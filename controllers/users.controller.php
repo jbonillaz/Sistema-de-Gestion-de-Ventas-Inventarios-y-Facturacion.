@@ -31,7 +31,7 @@ class ControllersUsers{
             /*echo '<br><div class="alert alert-success">Bienvenido al Sistema</div>';*/
 
           }else{
-            /*echo '<br><div class="alert alert-danger">Error al ingresar, usuario incorrecto</div>';*/
+            echo '<br><div class="alert alert-danger">Error al ingresar, usuario incorrecto</div>';
           }
       }
 
