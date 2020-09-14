@@ -33,21 +33,40 @@
 
       <div class="box-body">
         
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>Foto</th>
-            <th>Perfil</th>
-            <th>estado</th>
-            <th>Ultimo Login</th>
-            <th>Acciones</th>
-          </tr>
+      <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+      <thead>
+         
+         <tr>
+           
+           <th style="width:10px">#</th>
+           <th>Nombre</th>
+           <th>Usuario</th>
+           <th>Foto</th>
+           <th>Perfil</th>
+           <th>Estado</th>
+           <th>Último login</th>
+           <th>Acciones</th>
+
+         </tr> 
+
         </thead>
+
         <tbody>
           <tr>
+            <td>1</td>
+            <td>Usuario Administrador</td>
+            <td>admin</td>
+            <td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>
+            <td>Administrador</td>
+            <td><button class="btn btn-success btn-xs">Activado</button></td>
+            <td>2020-09-13</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+              </div>
+            </td>
+            <tr>
             <td>1</td>
             <td>Usuario Administrador</td>
             <td>admin</td>
