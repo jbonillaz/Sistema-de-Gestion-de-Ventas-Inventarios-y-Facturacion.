@@ -7,7 +7,7 @@ class ControllersUsers{
   =         Ingreso al sistema       =
   =============================================*/
 
-  public function ctrUserLogin(){
+  static public function ctrUserLogin(){
     if(isset($_POST["ingUsuario"])){
 
       if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
@@ -37,4 +37,18 @@ class ControllersUsers{
 
     }
   }
+ /*========================================
+  =         Crear usuario      =
+  =============================================*/
+static public function ctrCreateUser(){
+
+  if(isset($_POST["nuevoUsuario"])){
+
+  }
+
+
+
+
+}
+
 }

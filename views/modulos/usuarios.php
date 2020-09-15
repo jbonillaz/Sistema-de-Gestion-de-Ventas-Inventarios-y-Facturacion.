@@ -193,7 +193,7 @@
 
               <p class="help-block">Peso Maximo de la Foto 200MB</p>
 
-              <img src="views/img/users/default/anonymous.png" class="img.thumbnail" width="100px">
+              <img src="views/img/template/LIROZ.jpg" class="img.thumbnail" width="100px">
 
             </div>
           
@@ -210,6 +210,14 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
         
         </div>
+
+        <?php
+
+        $CreateUser = new ControllerUser();
+        $CreateUser -> ctrCreateUser();
+
+
+      ?>
 
         </form>
 
