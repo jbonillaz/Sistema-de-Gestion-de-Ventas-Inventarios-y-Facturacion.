@@ -38,14 +38,14 @@ class ModelsUsers{
   static public function mdlUserLogin($tabla, $data){
 
     $stmt = Connection::connect()->prepare(
-                    "INSERT INTO $tabla (nombre, usuario, password, perfil ) 
-                    VALUES (:nombre, :usuario, :password, :perfil )");
+                    "INSERT INTO $tabla (nombre, usuario, password, perfil, foto ) 
+                    VALUES (:nombre, :usuario, :password, :perfil, :foto )");
 
     $stmt->bindParam(":nombre", $data["nombre"], PDO::PARAM_STR);
     $stmt->bindParam(":usuario", $data["usuario"], PDO::PARAM_STR);
     $stmt->bindParam(":password", $data["password"], PDO::PARAM_STR);
     $stmt->bindParam(":perfil", $data["perfil"], PDO::PARAM_STR);
-    // $stmt->bindParam(":foto", $data["photo"], PDO::PARAM_STR);
+    $stmt->bindParam(":foto", $data["foto"], PDO::PARAM_STR);
   
 
     if($stmt->execute()){

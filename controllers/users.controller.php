@@ -49,13 +49,78 @@ static public function ctrCreateUser(){
         preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
         preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
+/*========================================
+  =        Validar imagen      =
+  =============================================*/
+  $ruta = "";
 
+  if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+
+    list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+    // var_dump(getimagesize($_FILES["nuevaFoto"]["tmp_name"]));
+    $nuevoAncho = 500;
+    $nuevoAlto = 500;
+
+    /*========================================
+  =        Creacion del directorio donde se 
+        guarda la foto del usuario     =
+  =============================================*/
+
+  $directorio = "views/img/users/".$_POST["nuevoUsuario"];
+// 0705 son los permisos de lectura y escritura
+					mkdir($directorio, 0755);
+
+/*=============================================
+          de acuerdo a ltipo de imagen se colocan
+           las funciones poor defecto de PHP
+					=============================================*/
+          if($_FILES["nuevaFoto"]["type"] == "image/jpeg"){
+
+           /*=============================================
+          Guardamos la imagen en el directrorio.
+          =============================================*/
+          $aleatorio = mt_rand(100,999);
+
+						$ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+            // cortando la imagen,
+						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);						
+              // para que mantenga las mimas propiedades
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+            // ajustar la imagen al tamaño de 500x500
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+            // Guardar la imagen en la ruta que le estamos asignando
+						imagejpeg($destino, $ruta);
+          
+
+          }
+          if($_FILES["nuevaFoto"]["type"] == "image/png"){
+
+            /*=============================================
+           Guardamos la imagen en el directrorio.
+           =============================================*/
+           $aleatorio = mt_rand(100,999);
+ 
+             $ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
+             // cortando la imagen,
+             $origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);						
+               // para que mantenga las mimas propiedades
+             $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+             // ajustar la imagen al tamaño de 500x500
+             imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+             // Guardar la imagen en la ruta que le estamos asignando
+             imagepng($destino, $ruta);
+           
+ 
+           }
+  }
+  
           $tabla ="usuarios";
 
           $data = array("nombre" => $_POST["nuevoNombre"],
                         "usuario" => $_POST["nuevoUsuario"],
                         "password" => $_POST["nuevoPassword"],
-                        "perfil" => $_POST["nuevoPerfil"]);
+                        "perfil" => $_POST["nuevoPerfil"],
+                        "foto"=>$ruta);
 
          $reply = ModelsUsers::mdlUserLogin($tabla, $data);
 
@@ -119,4 +184,4 @@ static public function ctrCreateUser(){
 
             }
        } 
-}
+  }
