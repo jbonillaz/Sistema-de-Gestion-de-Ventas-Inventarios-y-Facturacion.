@@ -3,13 +3,13 @@
 require_once "connection.php";
 
 class ModelsUsers{
-    /**Mostrar usuarios */
+    /**Mostrar  usuarios */
 
-    static public function Mdlshowusers($table, $item, $value){
+    static public function Mdlshowusers($tabla, $item, $value){
 
         // if($item != null){
 
-        $stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
+        $stmt = Connection::connect()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
         
         $stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
         
@@ -19,7 +19,7 @@ class ModelsUsers{
 
     /*}else{
 
-        $stmt = Connection::connect()->prepare("SELECT * FROM $table");
+        $stmt = Connection::connect()->prepare("SELECT * FROM $tabla");
 
         $stmt -> execute();
 
@@ -27,7 +27,7 @@ class ModelsUsers{
 
         // return $stmt -> fetchAll();    
     
-        //  $stmt -> close();
+        // $stmt -> close();
          
          $stmt = null;
     }
@@ -35,10 +35,10 @@ class ModelsUsers{
   =        Registro de usuario      =
   =============================================*/
 
-  static public function mdlUserLogin($table, $data){
+  static public function mdlUserLogin($tabla, $data){
 
     $stmt = Connection::connect()->prepare(
-                    "INSERT INTO $table (nombre, usuario, password, perfil ) 
+                    "INSERT INTO $tabla (nombre, usuario, password, perfil ) 
                     VALUES (:nombre, :usuario, :password, :perfil )");
 
     $stmt->bindParam(":nombre", $data["nombre"], PDO::PARAM_STR);
@@ -57,8 +57,6 @@ class ModelsUsers{
         return "error";
     
     }
-
-    // $stmt->close();
     
     $stmt = null;
 

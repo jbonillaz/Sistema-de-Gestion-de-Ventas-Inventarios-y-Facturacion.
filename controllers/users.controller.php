@@ -14,12 +14,12 @@ class ControllersUsers{
       if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
-          $table = "usuarios";
+          $tabla = "usuarios";
 
           $item = "usuario";
           $value = $_POST["ingUsuario"];
 
-          $reply = ModelsUsers::Mdlshowusers($table, $item, $value);
+          $reply = ModelsUsers::Mdlshowusers($tabla, $item, $value);
 
           if($reply["usuario"] == $_POST["ingUsuario"] && $reply["password"] == $_POST["ingPassword"]){
             
@@ -50,69 +50,73 @@ static public function ctrCreateUser(){
         preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 
-          $table ="usuarios";
+          $tabla ="usuarios";
 
           $data = array("nombre" => $_POST["nuevoNombre"],
                         "usuario" => $_POST["nuevoUsuario"],
-                        "parssword" => $_POST["nuevoPassword"],
+                        "password" => $_POST["nuevoPassword"],
                         "perfil" => $_POST["nuevoPerfil"]);
 
-                         $reply = ModelsUsers::mdlUserLogin($table, $data);
+         $reply = ModelsUsers::mdlUserLogin($tabla, $data);
 
-                        if($reply == "ok"){
+        //  var_dump($reply);
 
-                          echo '<script>
-                
-                          swal({
-                
-                            type: "success",
-                            title: "¡El usuario ha sido guardado correctamente!",
-                            showConfirmButton: true,
-                            confirmButtonText: "Cerrar",
-                            closeOnConfirm: false
-                
-                          }).then((result)=>{
-                
-                            if(result.value){
-                            
-                              window.location = "usuarios";
-                
-                            }
-                
-                          });
-                        
-                
-                          </script>';
-                
-                        }
+        //  return;
 
+                if($reply == "ok"){
+
+                  echo '<script>
+
+                  swal({
+
+                    type: "success",
+                    title: "¡El usuario ha sido guardado correctamente!",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+
+                  }).then(function(result){
+
+                    if(result.value){
+                    
+                      window.location = "usuarios";
+
+                    }
+
+                  });
                 
-                      }else{
+
+                  </script>';
+
+
+                }	
+
+
+              }else{
+
+                echo '<script>
+
+                  swal({
+
+                    type: "error",
+                    title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+
+                  }).then(function(result){
+
+                    if(result.value){
+                    
+                      window.location = "usuarios";
+
+                    }
+
+                  });
                 
-                        echo '<script>
-                
-                          swal({
-                
-                            type: "error",
-                            title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-                            showConfirmButton: true,
-                            confirmButtonText: "Cerrar",
-                            closeOnConfirm: false
-                
-                          }).then((result)=>{
-                
-                            if(result.value){
-                            
-                              window.location = "usuarios";
-                
-                            }
-                
-                          });
-                        
-                
-                        </script>';
-                
-                      }
-                }
+
+                </script>';
+
+              }
+
+            }
        } 
 }
