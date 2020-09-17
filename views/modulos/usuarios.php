@@ -190,11 +190,11 @@
 
             <div class="panel">Subir Foto</div>
 
-              <input type="file" id="nuevaFoto" name="nuevaFoto">
+              <input type="file" class="nuevaFoto" name="nuevaFoto">
 
               <p class="help-block">Peso Maximo de la Foto 200MB</p>
 
-              <img src="views/img/template/LIROZ.jpg" class="img.thumbnail" width="100px">
+              <img src="views/img/users/default/avatar5.png" class="img.thumbnail previsualizar" width="100px">
 
             </div>
           
