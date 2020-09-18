@@ -28,7 +28,7 @@ class ControllersUsers{
             $_SESSION["login"] = "ok";
             $_SESSION["id"] = $reply["id"];
             $_SESSION["nombre"] = $reply["nombre"];
-            $_SESSION["usuario"] = $reply["usuairo"];
+            $_SESSION["usuario"] = $reply["usuario"];
             $_SESSION["foto"] = $reply["foto"];
             $_SESSION["perfil"] = $reply["perfil"];
 

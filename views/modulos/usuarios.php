@@ -61,7 +61,7 @@
           $usuarios = ControllersUsers::ctrshowusers($item, $valor);
 
           // var_dump($usuarios);
-          // array que trae la base de datos para mostrar los usuarios
+          // array que trae la base de datos para mostrar los usuarios en la plantilla de usuarios
           foreach ($usuarios as $key => $valor){
 
             echo '<tr>
@@ -78,7 +78,7 @@
               }
 
                     
-             echo '<td>'.$valor["usuario"].'</td>
+             echo '<td>'.$valor["perfil"].'</td>
                       <td><button class="btn btn-success btn-xs">Activado</button></td>
                       <td>'.$valor["ultimo_login"].'</td>
                       <td>
