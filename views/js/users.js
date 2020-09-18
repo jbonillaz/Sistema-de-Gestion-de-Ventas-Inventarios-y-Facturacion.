@@ -48,3 +48,47 @@
 }
 
   });
+
+  /*=============================================
+Editar el usuario
+=============================================*/
+
+$(document).on("click", ".btnEditarUsuario", function(){
+
+	var idUsuario = $(this).attr("idUsuario");
+  
+
+  var datos = new FormData();
+  datos.append("idUsuario", idUsuario);
+
+    	$.ajax({
+
+		url:"ajax/usuarios.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(reply){
+
+		
+			$("#editarNombre").val(reply["nombre"]);
+			$("#editarUsuario").val(reply["usuario"]);
+			$("#editarPerfil").html(reply["perfil"]);
+			$("#editarPerfil").val(reply["perfil"]);
+			$("#fotoActual").val(reply["foto"]);
+
+			$("#passwordActual").val(reply["password"]);
+
+			if(reply["foto"] != ""){
+
+				$(".previsualizar").attr("src", reply["foto"]);
+
+			}
+
+		}
+
+	});
+
+})

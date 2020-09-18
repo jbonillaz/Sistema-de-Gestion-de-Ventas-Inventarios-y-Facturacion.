@@ -83,7 +83,7 @@
                       <td>'.$valor["ultimo_login"].'</td>
                       <td>
                         <div class="btn-group">
-                          <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$valor["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
                           <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                         </div>
                       </td>
@@ -110,7 +110,7 @@
       <form role="form" method="post" enctype="multipart/form-data">
 
         <!--=====================================
-        Cabeza del modal
+        CABEZA DEL MODAL
         ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
@@ -122,14 +122,14 @@
         </div>
 
         <!--=====================================
-        Cuerpo del modal
+        CUERPO DEL MODAL
         ======================================-->
 
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!-- Ingreso del nombre -->
+            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
@@ -143,7 +143,7 @@
 
             </div>
 
-            <!-- Engreso del usuario -->
+            <!-- ENTRADA PARA EL USUARIO -->
 
              <div class="form-group">
               
@@ -157,7 +157,7 @@
 
             </div>
 
-            <!-- Ingreso de contraseña -->
+            <!-- ENTRADA PARA LA CONTRASEÑA -->
 
              <div class="form-group">
               
@@ -171,7 +171,7 @@
 
             </div>
 
-            <!-- Seleccioon de perfil de usuario-->
+            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
 
             <div class="form-group">
               
@@ -195,7 +195,7 @@
 
             </div>
 
-            <!-- CXargar foto-->
+            <!-- ENTRADA PARA SUBIR FOTO -->
 
              <div class="form-group">
               
@@ -214,7 +214,7 @@
         </div>
 
         <!--=====================================
-        Pie de pagina del modal
+        PIE DEL MODAL
         ======================================-->
 
         <div class="modal-footer">
@@ -224,17 +224,162 @@
           <button type="submit" class="btn btn-primary">Guardar usuario</button>
 
         </div>
+
         <?php
 
-        $CreateUser = new ControllersUsers();
-        $CreateUser -> ctrCreateUser();
+          $CreateUser = new ControllersUsers();
+          $CreateUser -> ctrCreateUser();
 
         ?>
 
-        </form>
+      </form>
 
     </div>
 
   </div>
 
 </div>
+
+<!--========================================
+  =        Modal editar usuarios       =
+  =============================================-->
+  <div id="modalEditarUsuario" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Usuario</h4>
+
+        </div>
+
+        <!--=====================================
+        Cuerpo del modal
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- Entrada para el nombre  -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarNombre" value="" id="editarNombre" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL USUARIO -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarUsuario" value="" id="editarUsuario" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para el cambio de contraseña-->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la contraseña nueva" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para el cambio del perfil -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg" name="editarPerfil">
+                  
+                  <option value="" id="editarPerfil"></option>
+
+                  <option value="Administrador">Administrador</option>
+
+                  <option value="Especial">Especial</option>
+
+                  <option value="Vendedor">Vendedor</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para cambiar la foto -->
+
+             <div class="form-group">
+              
+              <div class="panel">Cargar Foto</div>
+
+              <input type="file" class="nuevaFoto" name="editarFoto">
+
+              <p class="help-block">Peso máximo de la foto 2MB</p>
+
+              <img src="views/img/users/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        Pie del modal
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+        </div>
+
+        <?php
+
+            $EditUser = new ControllersUsers();
+            // $EditUser -> CtrEditUser();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
