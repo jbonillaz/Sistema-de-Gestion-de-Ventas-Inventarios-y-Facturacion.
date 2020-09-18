@@ -102,126 +102,128 @@
   =        Modal Ingresar usuarios        =
   =============================================-->
   <div id="modalAgregarUsuario" class="modal fade" role="dialog">
-    
+  
   <div class="modal-dialog">
 
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-      <!--========================================
-    =        Modal Cabezera principal        =
-    =============================================-->
+        <!--=====================================
+        Cabeza del modal
+        ======================================-->
 
-        <div class="modal-header" style="background: #3c8dbc; color:white">
+        <div class="modal-header" style="background:#3c8dbc; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-          <h4 class="modal-title">Agregar Usuario</h4>
+
+          <h4 class="modal-title">Agregar usuario</h4>
 
         </div>
 
-        <!--========================================
-    =        Cuerpo del Modal        =
-    =============================================-->
+        <!--=====================================
+        Cuerpo del modal
+        ======================================-->
 
         <div class="modal-body">
 
           <div class="box-body">
 
-          <!-- Entrada para el Nombre-->  
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                <input type="text"  class="form-control" name="nuevoNombre" placeholder="Ingresar Nombre" require>
-
-              </div>
-
-            </div>
-
-            <!-- Entrada para el Usuario--> 
+            <!-- Ingreso del nombre -->
             
             <div class="form-group">
-
+              
               <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
-
-                <input type="text"  class="form-control" name="nuevoUsuario" placeholder="Ingresar Usuario" require>
+                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
 
               </div>
 
             </div>
 
-            <!-- Entrada para el Contraseña-->  
+            <!-- Engreso del usuario -->
 
-            <div class="form-group">
-
+             <div class="form-group">
+              
               <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                <input type="password"  class="form-control" name="nuevoPassword" placeholder="Ingresar Contraseña" require>
+                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
 
               </div>
 
             </div>
 
+            <!-- Ingreso de contraseña -->
 
-            <!-- Entrada para seleccionar perfil-->  
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+
+              </div>
+
+            </div>
+
+            <!-- Seleccioon de perfil de usuario-->
 
             <div class="form-group">
-
+              
               <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <select class="form-control input-lg" name="nuevoPerfil">
-                  <option value="">Seleccionar Perfil</option>
+                  
+                  <option value="">Selecionar perfil</option>
+
                   <option value="Administrador">Administrador</option>
+
                   <option value="Especial">Especial</option>
+
                   <option value="Vendedor">Vendedor</option>
+
                 </select>
 
-                
               </div>
 
             </div>
 
-            <!-- Entrada para seleccionar perfil-->  
+            <!-- CXargar foto-->
 
-
-
-            <div class="form-group">
-
-            <div class="panel">Subir Foto</div>
+             <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO</div>
 
               <input type="file" class="nuevaFoto" name="nuevaFoto">
 
-              <p class="help-block">Peso Maximo de la Foto 200MB</p>
+              <p class="help-block">Peso máximo de la foto 2MB</p>
 
-              <img src="views/img/users/default/avatar5.png" class="img.thumbnail previsualizar" width="100px">
+              <img src="views/img/users/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
-          
+
+          </div>
 
         </div>
 
-        <!--========================================
-    =        Pie de pagina del modal       =
-    =============================================-->
+        <!--=====================================
+        Pie de pagina del modal
+        ======================================-->
 
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
-        
-        </div>
 
+          <button type="submit" class="btn btn-primary">Guardar usuario</button>
+
+        </div>
         <?php
 
         $CreateUser = new ControllersUsers();
