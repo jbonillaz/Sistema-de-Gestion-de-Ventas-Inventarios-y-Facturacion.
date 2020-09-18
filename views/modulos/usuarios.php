@@ -52,36 +52,46 @@
         </thead>
 
         <tbody>
-          <tr>
-              <td>1</td>
-              <td>Usuario Administrador</td>
-              <td>admin</td>
-              <td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>
-              <td>Administrador</td>
-              <td><button class="btn btn-success btn-xs">Activado</button></td>
-              <td>2020-09-13</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </div>
-              </td>
-            </tr>
-            <!--tr>
-              <td>1</td>
-              <td>Usuario Administrador</td>
-              <td>admin</td>
-              <td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>
-              <td>Administrador</td>
-              <td><button class="btn btn-success btn-xs">Activado</button></td>
-              <td>2020-09-13</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </div>
-              </td>
-          </tr-->
+      
+        <?php
+
+          
+          $item = null;
+          $valor = null;
+          $usuarios = ControllersUsers::ctrshowusers($item, $valor);
+
+          // var_dump($usuarios);
+          // array que trae la base de datos para mostrar los usuarios
+          foreach ($usuarios as $key => $valor){
+
+            echo '<tr>
+                      <td>'.$valor["id"].'</td>
+                      <td>'.$valor["nombre"].'</td>
+                      <td>'.$valor["usuario"].'</td>';
+                      
+                      
+              if($valor["foto"] != ""){
+
+                echo '<td><img src="'.$valor["foto"].'" class="img-thumbnail" width="40px"> </td>';
+              }else{
+                echo '<td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>';
+              }
+
+                    
+             echo '<td>'.$valor["usuario"].'</td>
+                      <td><button class="btn btn-success btn-xs">Activado</button></td>
+                      <td>'.$valor["ultimo_login"].'</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                        </div>
+                      </td>
+          </tr>';
+          }
+          ?>
+
+
         </tbody>
       </table>
       </div>

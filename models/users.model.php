@@ -7,7 +7,7 @@ class ModelsUsers{
 
     static public function Mdlshowusers($tabla, $item, $value){
 
-        // if($item != null){
+        if($item != null){
 
         $stmt = Connection::connect()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
         
@@ -17,13 +17,15 @@ class ModelsUsers{
 
         return $stmt -> fetch();
 
-    /*}else{
+    }else{
 
         $stmt = Connection::connect()->prepare("SELECT * FROM $tabla");
 
         $stmt -> execute();
 
-    }*/
+        return $stmt -> fetchAll();
+
+    }
 
         // return $stmt -> fetchAll();    
     

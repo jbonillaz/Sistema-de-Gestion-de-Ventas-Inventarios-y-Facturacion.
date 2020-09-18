@@ -192,4 +192,16 @@ static public function ctrCreateUser(){
 
             }
        } 
+/*=============================================
+           Mostar usuario
+           =============================================*/
+    static public function ctrshowusers($item, $value){
+
+      $tabla = "usuarios";
+
+      $reply = ModelsUsers::Mdlshowusers($tabla, $item, $value);
+      return $reply;
+
+    }
+
   }
