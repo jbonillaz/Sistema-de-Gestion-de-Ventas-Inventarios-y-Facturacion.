@@ -14,6 +14,8 @@ class ControllersUsers{
       if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
+          $encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
           $tabla = "usuarios";
 
           $item = "usuario";
@@ -21,7 +23,7 @@ class ControllersUsers{
 
           $reply = ModelsUsers::Mdlshowusers($tabla, $item, $value);
 
-          if($reply["usuario"] == $_POST["ingUsuario"] && $reply["password"] == $_POST["ingPassword"]){
+          if($reply["usuario"] == $_POST["ingUsuario"] && $reply["password"] == $encriptar){
             
             $_SESSION["login"] = "ok";
 
@@ -115,10 +117,11 @@ static public function ctrCreateUser(){
   }
   
           $tabla ="usuarios";
+          $encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
           $data = array("nombre" => $_POST["nuevoNombre"],
                         "usuario" => $_POST["nuevoUsuario"],
-                        "password" => $_POST["nuevoPassword"],
+                        "password" => $encriptar,
                         "perfil" => $_POST["nuevoPerfil"],
                         "foto"=>$ruta);
 
