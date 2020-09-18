@@ -26,6 +26,11 @@ class ControllersUsers{
           if($reply["usuario"] == $_POST["ingUsuario"] && $reply["password"] == $encriptar){
             
             $_SESSION["login"] = "ok";
+            $_SESSION["id"] = $reply["id"];
+            $_SESSION["nombre"] = $reply["nombre"];
+            $_SESSION["usuario"] = $reply["usuairo"];
+            $_SESSION["foto"] = $reply["foto"];
+            $_SESSION["perfil"] = $reply["perfil"];
 
             echo '<script>
             windows.location = "inicio";
