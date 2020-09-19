@@ -76,16 +76,23 @@
               }else{
                 echo '<td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>';
               }
-
-                    
+    
              echo '<td>'.$valor["perfil"].'</td>
-                      <td><button class="btn btn-success btn-xs">Activado</button></td>
-                      <td>'.$valor["ultimo_login"].'</td>
                       <td>
+                      <button class="btn btn-success btn-xs">Activado</button>
+                      </td>
+                      
+                      <td>'.$valor["ultimo_login"].'</td>
+
+                      <td>
+
                         <div class="btn-group">
+                        
                         <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$valor["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
                           <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
                         </div>
+                        
                       </td>
           </tr>';
           }
@@ -285,7 +292,7 @@
 
             </div>
 
-            <!-- ENTRADA PARA EL USUARIO -->
+            <!-- Entrada para el usuario-->
 
              <div class="form-group">
               
@@ -293,7 +300,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarUsuario" value="" id="editarUsuario" required>
+                <input type="text" class="form-control input-lg" name="editarUsuario" value="" id="editarUsuario" readonly>
 
               </div>
 
@@ -308,6 +315,8 @@
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
                 <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la contraseña nueva" required>
+                <!-- este inputt se hace con la finalidad de imprimir en el javascript la contraseña que biene desde la base de datos -->
+                <input type="hidden" id="passwordActual" name="passwordActual">
 
               </div>
 
@@ -349,6 +358,8 @@
 
               <img src="views/img/users/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
+              <input type="hidden" name="fotoActual" id="fotoActual">
+
             </div>
 
           </div>
@@ -370,7 +381,7 @@
         <?php
 
             $EditUser = new ControllersUsers();
-            // $EditUser -> CtrEditUser();
+            $EditUser -> CtrEditUser();
 
         ?>
 

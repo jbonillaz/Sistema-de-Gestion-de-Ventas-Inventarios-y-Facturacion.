@@ -64,5 +64,32 @@ class ModelsUsers{
 
     }
 
+    /*========================================
+  =        editar Usuario      =
+  =============================================*/
+    public static function mdlEditUser($tabla, $data){
 
+        $stmt = Connection::connect()->prepare("UPDATE $tabla SET nombre = :nombre, password = :password, perfil = :perfil, foto = :foto WHERE usuario = :usuario");
+            // enlazamos paramet5ros.
+            $stmt->bindParam(":nombre", $data["nombre"], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $data["password"], PDO::PARAM_STR);
+            $stmt->bindParam(":perfil", $data["perfil"], PDO::PARAM_STR);
+            $stmt->bindParam(":foto", $data["foto"], PDO::PARAM_STR);
+            $stmt->bindParam(":usuario", $data["usuario"], PDO::PARAM_STR);
+
+            if($stmt->execute()){
+
+                return "ok";	
+    
+            }else{
+    
+                return "error";
+            
+            }
+    
+            $stmt->close();
+            
+            $stmt = null;
+
+    }
 }
