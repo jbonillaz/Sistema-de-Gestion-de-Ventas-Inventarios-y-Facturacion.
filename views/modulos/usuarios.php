@@ -314,7 +314,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la contraseña nueva" required>
+                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la contraseña nueva">
                 <!-- este inputt se hace con la finalidad de imprimir en el javascript la contraseña que biene desde la base de datos -->
                 <input type="hidden" id="passwordActual" name="passwordActual">
 
