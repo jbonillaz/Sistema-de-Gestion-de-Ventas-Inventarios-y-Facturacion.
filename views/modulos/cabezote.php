@@ -16,7 +16,7 @@
 
 		<span class="logo-lg">
 			
-			<img src="views/img/template/logo-blanco-lineal.png" class="img-responsive" style="padding:10px 0px">
+			<img src="views/img/template/logo-blanco-lineal.png" class="img-responsive" style="padding:0px 0px">
 
 		</span>
 
