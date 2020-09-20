@@ -4,7 +4,7 @@ require_once "../models/users.model.php";
 
 class AjaxUsuarios{
 
-/*=============================================
+    /*=============================================
 	Editar usuarios
 	=============================================*/	
     public $idUsuario;
@@ -38,9 +38,26 @@ class AjaxUsuarios{
 
     }
 
+    /*=============================================
+    Validacion de usuario, si ya se encuentra registrado.
+    =============================================*/
+
+    public $validarUsuario;
+
+	public function ajaxValidarUsuario(){
+
+		$item = "usuario";
+		$valor = $this->validarUsuario;
+
+		$respuesta = ControllersUsers::ctrshowusers($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
 }
 
-/*=============================================
+    /*=============================================
 	Editar usuarios
     =============================================*/
 
@@ -51,7 +68,7 @@ if(isset($_POST["idUsuario"])){
     $editar -> ajaxEditarUsuario();
 
 }
-/*=============================================
+    /*=============================================
 	Activar Usuario.
     =============================================*/
 if(isset($_POST["activarUsuario"])){
@@ -60,5 +77,16 @@ if(isset($_POST["activarUsuario"])){
 	$activarUsuario -> activarUsuario = $_POST["activarUsuario"];
 	$activarUsuario -> activarId = $_POST["activarId"];
 	$activarUsuario -> ajaxActivarUsuario();
+
+}
+    /*=============================================
+	Validar usuario.
+    =============================================*/
+
+if(isset( $_POST["validarUsuario"])){
+
+	$valUsuario = new AjaxUsuarios();
+	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
+	$valUsuario -> ajaxValidarUsuario();
 
 }

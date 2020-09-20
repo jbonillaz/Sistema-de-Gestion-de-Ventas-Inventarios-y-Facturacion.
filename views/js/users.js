@@ -75,13 +75,13 @@ $(document).on("click", ".btnEditarUsuario", function () {
 /*=============================================
 Activar Usuario.
 =============================================*/
-$(document).on("click", ".btnActivar", function(){
+$(document).on("click", ".btnActivar", function () {
   var idUsuario = $(this).attr("idUsuario");
-	var estadoUsuario = $(this).attr("estadoUsuario");
+  var estadoUsuario = $(this).attr("estadoUsuario");
 
-	var datos = new FormData();
- 	datos.append("activarId", idUsuario);
-  	datos.append("activarUsuario", estadoUsuario);
+  var datos = new FormData();
+  datos.append("activarId", idUsuario);
+  datos.append("activarUsuario", estadoUsuario);
 
   $.ajax({
     url: "ajax/usuarios.ajax.php",
@@ -115,4 +115,36 @@ $(document).on("click", ".btnActivar", function(){
     $(this).html("Activado");
     $(this).attr("estadoUsuario", 0);
   }
+});
+/*=============================================
+Validacion de usuario, si ya se encuentra registrado.
+=============================================*/
+$("#nuevoUsuario").change(function () {
+  $(".alert").remove();
+
+  var usuario = $(this).val();
+
+  var datos = new FormData();
+  datos.append("validarUsuario", usuario);
+
+  $.ajax({
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      if (respuesta) {
+        $("#nuevoUsuario")
+          .parent()
+          .after(
+            '<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>'
+          );
+
+        $("#nuevoUsuario").val("");
+      }
+    },
+  });
 });

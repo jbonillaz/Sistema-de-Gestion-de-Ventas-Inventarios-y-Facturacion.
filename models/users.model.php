@@ -96,7 +96,7 @@ class ModelsUsers{
     /*========================================
   =        Actualizar Usuario.      =
   =============================================*/
-    static public function mdlUpdateUser($tabla, $item1, $valor1, $item2, $valor2)
+static public function mdlUpdateUser($tabla, $item1, $valor1, $item2, $valor2)
     {
         $stmt = Connection::connect()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
 
