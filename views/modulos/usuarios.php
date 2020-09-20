@@ -96,7 +96,8 @@
                         <div class="btn-group">
                         
                         <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$valor["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
-                          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                          
+                        <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$valor["id"].'" fotoUsuario="'.$valor["foto"].'" usuario="'.$valor["usuario"].'"><i class="fa fa-times"></i></button>
 
                         </div>
                         
@@ -111,10 +112,10 @@
       </div>
     </div>
   </section>
-</div>
-<!--========================================
-  =        Modal Ingresar usuarios        =
-  =============================================-->
+  </div>
+    <!--========================================
+    =        Modal Ingresar usuarios        =
+    =============================================-->
   <div id="modalAgregarUsuario" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -254,9 +255,9 @@
 
 </div>
 
-<!--========================================
-  =        Modal editar usuarios       =
-  =============================================-->
+  <!--========================================
+    =        Modal editar usuarios       =
+    =============================================-->
 <div id="modalEditarUsuario" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -398,6 +399,13 @@
 
   </div>
 
-</div>
+  </div>
+
+<?php
+
+  $DeleteUser = new ControllersUsers();
+  $DeleteUser -> ctrDeleteUser();
+
+?>
 
 

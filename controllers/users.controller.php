@@ -239,7 +239,7 @@ class ControllersUsers{
     /*=============================================
          Editar usuario
       =============================================*/
-  public function CtrEditUser(){
+  static public function CtrEditUser(){
 
           if(isset($_POST["editarUsuario"])){
 
@@ -400,4 +400,45 @@ class ControllersUsers{
             }
           }
  } //termino del metodo
+      /*=============================================
+         Borrar Usuarios.
+      =============================================*/
+  static public function ctrDeleteUser(){
+
+    if(isset($_GET["idUsuario"])){
+
+			$tabla ="usuarios";
+			$datos = $_GET["idUsuario"];
+
+			if($_GET["fotoUsuario"] != ""){
+
+				unlink($_GET["fotoUsuario"]);
+				rmdir('views/img/users/'.$_GET["usuario"]);
+
+			}
+
+			$respuesta = ModelsUsers::mdlDeleteUser($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El usuario ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "usuarios";
+
+								}
+							})
+
+				</script>';
+
+			}		
+		}
+  }//termino del metodo
 }//termino de la clase
