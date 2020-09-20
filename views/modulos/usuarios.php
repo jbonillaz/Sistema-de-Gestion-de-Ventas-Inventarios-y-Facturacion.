@@ -77,12 +77,19 @@
                 echo '<td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"> </td>';
               }
     
-             echo '<td>'.$valor["perfil"].'</td>
-                      <td>
-                      <button class="btn btn-success btn-xs">Activado</button>
-                      </td>
-                      
-                      <td>'.$valor["ultimo_login"].'</td>
+                echo '<td>'.$valor["perfil"].'</td>';
+
+              if($valor["estado"] != 0){
+
+                echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$valor["id"].'" estadoUsuario="0">Activado</button></td>';
+
+              }else{
+
+                echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$valor["id"].'" estadoUsuario="1">Desactivado</button></td>';
+              
+              }     
+                        
+                     echo '<td>'.$valor["ultimo_login"].'</td>
 
                       <td>
 
@@ -250,7 +257,7 @@
 <!--========================================
   =        Modal editar usuarios       =
   =============================================-->
-  <div id="modalEditarUsuario" class="modal fade" role="dialog">
+<div id="modalEditarUsuario" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 

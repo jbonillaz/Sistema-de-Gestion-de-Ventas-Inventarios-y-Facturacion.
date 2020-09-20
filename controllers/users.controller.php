@@ -6,7 +6,6 @@ class ControllersUsers{
     /*========================================
   =      Ingreso al sistema       =
   =============================================*/
-
   static public function ctrUserLogin(){
 
     if(isset($_POST["ingUsuario"])){
@@ -25,19 +24,53 @@ class ControllersUsers{
 
           if($reply["usuario"] == $_POST["ingUsuario"] && $reply["password"] == $encriptar){
             
-            $_SESSION["login"] = "ok";
-            $_SESSION["id"] = $reply["id"];
-            $_SESSION["nombre"] = $reply["nombre"];
-            $_SESSION["usuario"] = $reply["usuario"];
-            $_SESSION["foto"] = $reply["foto"];
-            $_SESSION["perfil"] = $reply["perfil"];
+            if($reply["estado"] == 1){
 
-            echo '<script>
-            windows.location = "inicio";
+                $_SESSION["login"] = "ok";
+                $_SESSION["id"] = $reply["id"];
+                $_SESSION["nombre"] = $reply["nombre"];
+                $_SESSION["usuario"] = $reply["usuario"];
+                $_SESSION["foto"] = $reply["foto"];
+                $_SESSION["perfil"] = $reply["perfil"];
+              
+                /*========================================
+                 =      Se registra la fecha para saber el ultimo login.      =
+                =============================================*/
+
+
+                date_default_timezone_set('America/Bogota');
+
+                $fecha = date('Y-m-d');
+                $hora = date('H:i:s');
+
+                $fechaActual = $fecha.' '.$hora;
+
+                $item1 = "ultimo_login";
+                $valor1 = $fechaActual;
+
+                $item2 = "id";
+                $valor2 = $reply["id"];
+
+                $ultimoLogin = ModelsUsers::mdlUpdateUser($tabla, $item1, $valor1, $item2, $valor2);
+
+                if($ultimoLogin == "ok"){
+
+                  echo '<script>
+    
+                    window.location = "inicio";
+    
+                  </script>';
+    
+                }		
+
+
+            }else{
+
+              echo '<br><div class="alert alert-danger">El usuario esta desactivado</div>';
+
+            }
             
-            </script>';
-            /*echo '<br><div class="alert alert-success">Bienvenido al Sistema</div>';*/
-
+            
           }else{
             echo '<br><div class="alert alert-danger">Error al ingresar, usuario incorrecto</div>';
           }
