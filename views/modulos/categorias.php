@@ -4,15 +4,15 @@
     
     <h1>
       
-      Administrar categorías
+      Administrar Categorías
     
     </h1>
 
     <ol class="breadcrumb">
       
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar categorías</li>
+      <li class="active">Administrar Categorías</li>
     
     </ol>
 
@@ -24,28 +24,128 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Title</h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                  title="Collapse">
-            <i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-            <i class="fa fa-times"></i></button>
-        </div>
+       
+      <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
+        Agregar Categorías
+         </button>
+        
       </div>
+
       <div class="box-body">
-        Start creating your amazing application!
-      </div>
-      <!-- /.box-body -->
-      <div class="box-footer">
-        Footer
-      </div>
-      <!-- /.box-footer-->
-    </div>
-    <!-- /.box -->
+        
+      <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+      <thead>
+         
+         <tr>
+           
+           <th style="width:10px">#</th>
+           <th>Nombre Categoría</th> 
+           <th>Acciones</th>
 
+         </tr> 
+
+        </thead>
+
+        <tbody>
+          <tr>
+              <td>1</td>
+              <td>EQUIPOS ELECTROMECÁNICOS</td>
+              
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>TALADROS</td>
+              
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                </div>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
   </section>
-  <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
+<!--========================================
+  =        Modal Ingresar Categoria       =
+  =============================================-->
+  <div id="modalAgregarCategoria" class="modal fade" role="dialog">
+    
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <form role="form" method="post">
+
+                <!--========================================
+                =        Modal Cabezera principal        =
+                =============================================-->
+
+                <div class="modal-header" style="background: #3c8dbc; color:white">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+                    <h4 class="modal-title">Agregar Categoría</h4>
+
+                </div>
+
+                <!--========================================
+                =        Cuerpo del Modal        =
+                =============================================-->
+
+                <div class="modal-body">
+
+                    <div class="box-body">
+
+                            <!-- Entrada para la Categoria-->  
+
+                        <div class="form-group">
+
+                            <div class="input-group">
+
+                                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                                <input type="text"  class="form-control" name="nuevaCategoria" placeholder="Ingresar Categoria" require>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--========================================
+                =        Pie de pagina del modal       =
+                =============================================-->
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    
+                </div>
+
+                <?php
+
+                    $CreateUser = new ControllersUsers();
+                    $CreateUser -> ctrCreateUser();
+
+                ?>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
