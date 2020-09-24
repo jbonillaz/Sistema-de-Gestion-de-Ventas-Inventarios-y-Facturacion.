@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2020 a las 18:08:05
+-- Tiempo de generación: 24-09-2020 a las 19:48:39
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -22,6 +22,18 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `liroz` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
 USE `liroz`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -46,13 +58,19 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(57, 'romeroq', 'romero', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', '', '', 0, '0000-00-00 00:00:00', '2020-09-18 03:01:46'),
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/jbonillaz/178.png', 0, '0000-00-00 00:00:00', '2020-09-18 03:23:33'),
-(59, 'Lina Maria Rozo', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/liroz/591.png', 0, '0000-00-00 00:00:00', '2020-09-18 04:37:47');
+(58, 'John Fredy Bonilla', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-09-24 12:46:07', '2020-09-24 17:46:07'),
+(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-21 20:53:30', '2020-09-22 02:19:27'),
+(69, 'Carlos Arnulfo Cogua Laverde', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-09-21 15:43:46', '2020-09-22 02:19:30');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -65,10 +83,16 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- Base de datos: `phpmyadmin`
 --
@@ -218,7 +242,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
+('root', '[{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
 
 -- --------------------------------------------------------
 
@@ -325,7 +349,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-09-18 15:42:21', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-09-24 17:46:53', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 

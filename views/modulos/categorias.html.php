@@ -122,13 +122,7 @@
                      <button type="submit" class="btn btn-primary">Guardar</button>
                         
                 </div>
-                <!-- objeto que va a ejecutar el metodo del controlador. -->
-                <?php 
-                
-                $CreateCategorie = new ControllerCategories();
-                $CreateCategorie -> ctrCreateCategories();
-                
-                ?>
+
             </form>
 
         </div>
