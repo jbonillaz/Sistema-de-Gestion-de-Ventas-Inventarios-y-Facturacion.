@@ -59,4 +59,18 @@ class ControllerCategories{
         }
     }
 
+		/*========================================
+        =        Agregar Categoria.      =
+        =============================================*/
+
+	static public function ctrShowCategories($item, $valor){
+		
+		$tabla = "categorias";
+
+		$reply = ModelCategories::mdlShowCategories($tabla, $item, $valor);
+
+		return $reply;
+
+	}
+
 }

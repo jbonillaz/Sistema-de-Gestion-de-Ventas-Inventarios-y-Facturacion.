@@ -47,16 +47,38 @@
                     </thead>
 
                     <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Cajas de Carton</td>
-                            <td>
-                                <div class="btn-group">
-                                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                            </tr>
+                        <?php
+
+                            $item = null;
+                            $valor = null;
+
+                            $categorias = ControllerCategories::ctrShowCategories($item, $valor);
+
+                            foreach ($categorias as $key => $value) {
+                            
+                            echo ' <tr>
+
+                                    <td>'.($key+1).'</td>
+
+                                    <td class="text-uppercase">'.$value["nombre_cat"].'</td>
+
+                                    <td>
+
+                                        <div class="btn-group">
+                                            
+                                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+
+                                        <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                                        </div>  
+
+                                    </td>
+
+                                    </tr>';
+                            }
+
+                        ?>
+
                     </tbody>
                 </table>
             </div>

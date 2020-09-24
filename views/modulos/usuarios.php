@@ -65,7 +65,7 @@
           foreach ($usuarios as $key => $valor){
 
             echo '<tr>
-                      <td>'.$valor["id"].'</td>
+                      <td>'.($key+1).'</td>
                       <td>'.$valor["nombre"].'</td>
                       <td>'.$valor["usuario"].'</td>';
                       
