@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2020 a las 19:48:39
+-- Tiempo de generación: 29-09-2020 a las 23:17:48
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -31,9 +31,24 @@ USE `liroz`;
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
-  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_cat` text COLLATE utf8_spanish_ci NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre_cat`, `fecha`) VALUES
+(1, 'Cajas de Madera ', '2020-09-29 21:12:54'),
+(2, 'Cajas Kraft', '2020-09-24 20:35:28'),
+(3, 'Envases de Vidrio', '2020-09-24 20:37:27'),
+(4, 'Contenedores Plásticos con Tapa', '2020-09-24 20:37:43'),
+(5, 'Contenedores de Poliestireno', '2020-09-24 20:39:17'),
+(6, 'Globos', '2020-09-24 20:39:42'),
+(7, 'Bebidas', '2020-09-24 20:39:50'),
+(8, 'Otras Categorias', '2020-09-29 21:12:14'),
+(9, 'Funsional', '2020-09-29 21:12:32');
 
 -- --------------------------------------------------------
 
@@ -58,8 +73,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-09-24 12:46:07', '2020-09-24 17:46:07'),
-(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-21 20:53:30', '2020-09-22 02:19:27'),
+(58, 'John Fredy Bonilla', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-09-29 15:07:25', '2020-09-29 20:07:25'),
+(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-24 12:56:49', '2020-09-24 17:56:49'),
 (69, 'Carlos Arnulfo Cogua Laverde', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-09-21 15:43:46', '2020-09-22 02:19:30');
 
 --
@@ -86,7 +101,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -349,7 +364,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-09-24 17:46:53', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-09-29 21:13:00', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
