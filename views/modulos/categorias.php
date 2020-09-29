@@ -235,3 +235,10 @@
     </div>
 
 </div>
+
+<?php 
+                
+        $DeleteCategorie = new ControllerCategories();
+        $DeleteCategorie -> ctrDeleteCategories();
+                
+?>
