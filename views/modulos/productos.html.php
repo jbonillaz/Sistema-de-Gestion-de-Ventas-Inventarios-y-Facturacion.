@@ -54,53 +54,23 @@
         </thead>
 
         <tbody>
-
-        <?php
-
-            $item = null;
-
-            $valor = null;
-
-            $productos = ControllerProducts::ctrShowProducts($item, $valor);
-
-            // var_dump($productos)
-          
-          foreach ($productos as $key => $value){
-
-            echo '<tr>
-            
-            <td>'.($key+1).'</td>
+          <tr>
+              <td>1</td>
               <td><img src="views/img/products/Bouquet_de_globos.png" class="img-thumbnail" width="40px"></td>
-              <td>'.$value["codigo"].'</td>
-              <td>'.$value["descripcion"].'</td>';
-
-                   $item = "id";
-                  $valor = $value["id_categoria"];
-
-                $categoria = ControllerCategories::ctrShowCategories($item, $valor);
-
-
-              echo '<td>'.$categoria["nombre_cat"].'</td>
-              <td>'.$value["stock"].'</td>
-              <td>'.$value["precio_compra"].'</td>
-              <td>'.$value["precio_venta"].'</td>
-              <td>'.$value["fecha"].'</td>
+              <td>001</td>
+              <td>Lorem ipsum dolor sit amet </td>
+              <td>Lorem ipsum</td>
+              <td>20</td>
+              <td>5USD</td>
+              <td>10USD</td>
+              <td>2020-10-01</td>
               <td>
                 <div class="btn-group">
                   <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                 </div>
               </td>
-            
-            
-            
-            </tr>';
-
-          }
-
-
-        ?>
-        
+            </tr>
         </tbody>
       </table>
       </div>
