@@ -33,75 +33,87 @@
 
       <div class="box-body">
         
-      <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-      <thead>
-         
-         <tr>
-           
-           <th style="width:10px">#</th>
-           <th>Imagen</th>
-           <th>Codigo</th>
-           <th>Descripcion</th>
-           <th>Categoria</th>
-           <th>Stock</th>
-           <th>Precio de Compra</th>
-           <th>Precio de Venta</th>
-           <th>Agregado</th>
-           <th>Acciones</th>
+      <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
+          <!-- <thead>
+          <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
 
-         </tr> 
-
-        </thead>
-
-        <tbody>
-
-        <?php
-
-            $item = null;
-
-            $valor = null;
-
-            $productos = ControllerProducts::ctrShowProducts($item, $valor);
-
-            // var_dump($productos)
-          
-          foreach ($productos as $key => $value){
-
-            echo '<tr>
+          </thead> -->
+             
+          <thead>
             
-            <td>'.($key+1).'</td>
-              <td><img src="views/img/products/Bouquet_de_globos.png" class="img-thumbnail" width="40px"></td>
-              <td>'.$value["codigo"].'</td>
-              <td>'.$value["descripcion"].'</td>';
+            <tr>
+              
+              <th style="width:10px">#</th>
+              <th>Imagen</th>
+              <th>Codigo</th>
+              <th>Descripcion</th>
+              <th>Categoria</th>
+              <th>Stock</th>
+              <th>Precio de Compra</th>
+              <th>Precio de Venta</th>
+              <th>Agregado</th>
+              <th>Acciones</th>
 
-                   $item = "id";
-                  $valor = $value["id_categoria"];
+            </tr> 
 
-                $categoria = ControllerCategories::ctrShowCategories($item, $valor);
+          </thead>
+
+          <!-- <tbody>
+
+            <?php
+
+                $item = null;
+
+                $valor = null;
+
+                $productos = ControllerProducts::ctrShowProducts($item, $valor);
+
+                // var_dump($productos)
+              
+              foreach ($productos as $key => $value){
+
+                echo '<tr>
+                
+                <td>'.($key+1).'</td>
+                  <td><img src="views/img/products/Bouquet_de_globos.png" class="img-thumbnail" width="40px"></td>
+                  <td>'.$value["codigo"].'</td>
+                  <td>'.$value["descripcion"].'</td>';
+
+                      $item = "id";
+                      $valor = $value["id_categoria"];
+
+                    $categoria = ControllerCategories::ctrShowCategories($item, $valor);
 
 
-              echo '<td>'.$categoria["nombre_cat"].'</td>
-              <td>'.$value["stock"].'</td>
-              <td>'.$value["precio_compra"].'</td>
-              <td>'.$value["precio_venta"].'</td>
-              <td>'.$value["fecha"].'</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </div>
-              </td>
+                  echo '<td>'.$categoria["nombre_cat"].'</td>
+                  <td>'.$value["stock"].'</td>
+                  <td>'.$value["precio_compra"].'</td>
+                  <td>'.$value["precio_venta"].'</td>
+                  <td>'.$value["fecha"].'</td>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    </div>
+                  </td>
+                
+                
+                
+                </tr>';
+
+              }
+
+
+            ?>
             
-            
-            
-            </tr>';
-
-          }
-
-
-        ?>
-        
-        </tbody>
+          </tbody> -->
       </table>
       </div>
     </div>

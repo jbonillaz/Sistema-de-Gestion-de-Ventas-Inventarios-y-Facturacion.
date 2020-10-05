@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2020 a las 23:17:48
+-- Tiempo de generación: 05-10-2020 a las 16:50:39
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -46,9 +46,75 @@ INSERT INTO `categorias` (`id`, `nombre_cat`, `fecha`) VALUES
 (4, 'Contenedores Plásticos con Tapa', '2020-09-24 20:37:43'),
 (5, 'Contenedores de Poliestireno', '2020-09-24 20:39:17'),
 (6, 'Globos', '2020-09-24 20:39:42'),
-(7, 'Bebidas', '2020-09-24 20:39:50'),
-(8, 'Otras Categorias', '2020-09-29 21:12:14'),
-(9, 'Funsional', '2020-09-29 21:12:32');
+(7, 'Bebidas', '2020-09-24 20:39:50');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `codigo` text COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
+  `imagen` text COLLATE utf8_spanish_ci NOT NULL,
+  `stock` int(11) NOT NULL,
+  `precio_compra` float NOT NULL,
+  `precio_venta` float NOT NULL,
+  `ventas` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
+(1, 1, '1001', 'Caja tipo hex?gono, grande.', '', 20, 8000, 12000, 0, '0000-00-00 00:00:00'),
+(2, 1, '1002', 'Caja tipo hex?gono, mediana', '', 20, 6000, 10000, 0, '0000-00-00 00:00:00'),
+(3, 1, '1003', 'Caja  tipo hex?gono, peque?a.', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
+(4, 1, '1004', 'Cajas?tipo hielera, mediana', '', 20, 8000, 12000, 0, '0000-00-00 00:00:00'),
+(5, 1, '1005', 'Caja tipo baul, con tapa deslizante, grande.', '', 20, 10000, 20000, 0, '0000-00-00 00:00:00'),
+(6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 20, 8000, 160000, 0, '0000-00-00 00:00:00'),
+(7, 1, '1007', 'Caja cuadrada, mediana', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
+(8, 1, '1008', 'Caja tipo canasta, grande.', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
+(9, 1, '1009', 'Caja tipo canasta, mediana.', '', 20, 5000, 10000, 0, '0000-00-00 00:00:00'),
+(10, 1, '1010', 'Caja vinera, grande.', '', 20, 8000, 16000, 0, '0000-00-00 00:00:00'),
+(11, 1, '1011', 'Caja tipo mesa, grande.', '', 20, 7000, 14000, 0, '0000-00-00 00:00:00'),
+(12, 1, '1012', 'Caja tipo mesa, mediana', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
+(13, 1, '1013', 'Paquete de cubiertos, mediano.', '', 20, 1000, 2000, 0, '0000-00-00 00:00:00'),
+(14, 2, '2001', 'Caja domicilio, grande.', '', 20, 800, 1600, 0, '0000-00-00 00:00:00'),
+(15, 2, '2002', 'Caja domicilio, peque?a.', '', 20, 400, 800, 0, '0000-00-00 00:00:00'),
+(16, 2, '2003', 'Caja tipo ventana ?nica, mediana.', '', 20, 1200, 2200, 0, '0000-00-00 00:00:00'),
+(17, 2, '2004', 'Caja tipo doble ventana, peque?a.', '', 20, 900, 2000, 0, '0000-00-00 00:00:00'),
+(18, 2, '2005', 'Caja dulcera, grande.', '', 20, 2900, 6000, 0, '0000-00-00 00:00:00'),
+(19, 2, '2006', 'Bolsa kraft, mediana.', '', 20, 600, 2000, 0, '0000-00-00 00:00:00'),
+(20, 2, '2007', 'Caja cuatro solapas, grande.', '', 20, 5000, 20000, 0, '0000-00-00 00:00:00'),
+(21, 2, '2008', 'Vaso para cupcake, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(22, 2, '2009', 'Vaso para cupcake, preque?o..', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(23, 2, '2010', 'Vaso para cupcake color, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(24, 3, '3001', 'Jugo mediano, 250ml.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(25, 3, '3002', 'Jugo grande, 30ml.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(26, 3, '3003', 'Tipo compotero, 130cc.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(27, 3, '3004', 'Tipo bombillo, 250cc.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(28, 3, '3005', 'Tipo mayonesa, 500cc.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(29, 3, '3006', 'Tipo compotero plus, 231cc.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(30, 4, '4001', 'Tipo corazon,4oz.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(31, 4, '4002', 'Redondo postre, 8oz.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(32, 4, '4003', 'Rectangular, 18oz.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(33, 4, '4004', 'Tipo torta, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(34, 4, '4005', '4 divisiones, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(35, 4, '4006', 'C1, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(36, 5, '5001', 'Vaso, 8oz.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(37, 5, '5002', 'Bandeja torta, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(38, 5, '5003', 'Capacillos, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(39, 5, '5004', 'Bandeja c17, unico. ', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(40, 6, '6001', 'Te hatsu, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(41, 6, '6002', 'Te hatsu, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(42, 6, '6003', 'Cerveza corona, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(43, 6, '6004', 'Cerveza corona, peque?a.', '', 20, 0, 0, 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -73,9 +139,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-09-29 15:07:25', '2020-09-29 20:07:25'),
-(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-24 12:56:49', '2020-09-24 17:56:49'),
-(69, 'Carlos Arnulfo Cogua Laverde', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-09-21 15:43:46', '2020-09-22 02:19:30');
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-05 08:33:09', '2020-10-05 13:33:09'),
+(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-24 12:56:49', '2020-10-02 20:35:54'),
+(69, 'Carlos Arnulfo Cogua Laverde', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-09-21 15:43:46', '2020-10-01 19:18:01'),
+(71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
 
 --
 -- Índices para tablas volcadas
@@ -85,6 +152,12 @@ INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`,
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -104,10 +177,16 @@ ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- Base de datos: `phpmyadmin`
 --
@@ -257,7 +336,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
+('root', '[{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
 
 -- --------------------------------------------------------
 
@@ -364,7 +443,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-09-29 21:13:00', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-10-05 14:50:15', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
