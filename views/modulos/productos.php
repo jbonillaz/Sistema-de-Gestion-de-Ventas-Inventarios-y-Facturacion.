@@ -150,6 +150,42 @@
 
           <div class="box-body">
 
+
+                <!-- Entrada para seleccionar Categoria-->  
+
+            <div class="form-group">
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                  <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                    <option value="">Seleccionar Categoria</option>
+
+                    <!-- trayendo la informacion de la base de dato.  -->
+
+                      <?php 
+                      
+                        $item = null;
+                        $valor = null;
+
+                        $categorias = ControllerCategories::ctrShowCategories($item, $valor);
+
+                        foreach ($categorias as $key => $value){
+
+                          echo '<option value="'.$value["id"].'">'.$value["nombre_cat"].'</option>';
+                        }
+                        
+                      ?>
+                  
+                  </select>
+
+                  
+                </div>
+
+            </div>
+
+
           <!-- Entrada para el codigo-->  
 
             <div class="form-group">
@@ -158,7 +194,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                <input type="text"  class="form-control" name="nuevoCodigo" placeholder="Ingresar Codigo" require>
+                <input type="text"  class="form-control" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Codigo" readonly required>
 
               </div>
 
@@ -178,26 +214,6 @@
 
             </div>
 
-
-            <!-- Entrada para seleccionar Categoria-->  
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <select class="form-control input-lg" name="nuevaCategoria">
-                  <option value="">Seleccionar Categoria</option>
-                  <option value="cajas">Cajas</option>
-                  <option value="envases">Envases</option>
-                  <option value="contenedores">Contenedores</option>
-                </select>
-
-                
-              </div>
-
-            </div>
 
             <!-- Entrada para la disponiblidad del producto Stock--> 
             
@@ -223,7 +239,7 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
 
-                  <input type="number"  class="form-control" name="nuevoPrecioCompra" min="0" placeholder="Precio de Compra" require>
+                  <input type="number"  class="form-control" id="nuevoPrecioCompra"name="nuevoPrecioCompra" min="0" placeholder="Precio de Compra"require>
 
                 </div>
                    
@@ -268,7 +284,7 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 
-                  <input type="number"  class="form-control" name="nuevoPrecioVenta" min="0" placeholder="Precio de Venta" require>
+                  <input type="number"  class="form-control" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" placeholder="Precio de Venta" require>
 
                 </div>
             
@@ -278,17 +294,15 @@
 
            <!-- Entrada para seleccionar perfil-->  
 
-
-
             <div class="form-group">
 
-            <div class="panel">Subir Imagen</div>
+                <div class="panel">Subir Imagen</div>
 
-              <input type="file" id="nuevaInmagen" name="nuevaImagen">
+                <input type="file" id="nuevaInmagen" name="nuevaImagen">
 
-              <p class="help-block">Peso Maximo de la Foto 2 MB</p>
+                <p class="help-block">Peso Maximo de la Foto 2 MB</p>
 
-              <img src="views/img/products/Bouquet_de_globos.png" class="img.thumbnail" width="100px">
+                <img src="views/img/products/Bouquet_de_globos.png" class="img.thumbnail" width="100px">
 
             </div>
           
@@ -308,8 +322,8 @@
 
         <?php
 
-        $CreateUser = new ControllersUsers();
-        $CreateUser -> ctrCreateUser();
+          $CreateProduct = new ControllerProducts();
+          $CreateProduct -> ctrCreateProduct();
 
         ?>
 

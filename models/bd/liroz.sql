@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2020 a las 16:50:39
+-- Tiempo de generación: 06-10-2020 a las 18:04:50
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -72,8 +72,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
-(1, 1, '1001', 'Caja tipo hex?gono, grande.', '', 20, 8000, 12000, 0, '0000-00-00 00:00:00'),
-(2, 1, '1002', 'Caja tipo hex?gono, mediana', '', 20, 6000, 10000, 0, '0000-00-00 00:00:00'),
+(1, 1, '1001', 'Caja tipo hex?gono, grande.', '', 10, 8000, 12000, 0, '2020-10-05 21:19:21'),
+(2, 1, '1002', 'Caja tipo hex?gono, mediana', '', 15, 6000, 10000, 0, '2020-10-05 21:19:08'),
 (3, 1, '1003', 'Caja  tipo hex?gono, peque?a.', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
 (4, 1, '1004', 'Cajas?tipo hielera, mediana', '', 20, 8000, 12000, 0, '0000-00-00 00:00:00'),
 (5, 1, '1005', 'Caja tipo baul, con tapa deslizante, grande.', '', 20, 10000, 20000, 0, '0000-00-00 00:00:00'),
@@ -139,9 +139,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-05 08:33:09', '2020-10-05 13:33:09'),
-(64, 'Lina María Rozo Duitama', 'liroz', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Especial', 'views/img/users/liroz/694.jpg', 1, '2020-09-24 12:56:49', '2020-10-02 20:35:54'),
-(69, 'Carlos Arnulfo Cogua Laverde', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-09-21 15:43:46', '2020-10-01 19:18:01'),
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-06 07:47:32', '2020-10-06 12:47:32'),
+(69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-06 10:37:34', '2020-10-06 15:37:34'),
 (71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
 
 --
@@ -407,6 +406,13 @@ CREATE TABLE `pma__table_uiprefs` (
   `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
 
+--
+-- Volcado de datos para la tabla `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'liroz', 'productos', '{\"sorted_col\":\"`productos`.`stock`  ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\",\"col_order\":[0,1,2,3,4,5,6,7,8,9],\"col_visib\":[1,1,1,1,1,1,1,1,1,1]}', '2020-10-06 13:57:48');
+
 -- --------------------------------------------------------
 
 --
@@ -443,7 +449,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-10-05 14:50:15', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-10-06 13:57:02', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
