@@ -245,7 +245,7 @@
 
                 </div>
                         
-                <!-- ENTRADA PARA PRECIO VENTA -->
+                <!-- Entrada para precio de venta -->
 
                 <div class="col-xs-12 col-sm-6">
                 
@@ -259,7 +259,7 @@
                 
                   <br>
 
-                  <!-- CHECKBOX PARA PORCENTAJE -->
+                  <!-- CHECKBOX para porcentaje -->
 
                   <div class="col-xs-6">
                     
@@ -275,7 +275,7 @@
 
                   </div>
 
-                  <!-- ENTRADA PARA PORCENTAJE -->
+                  <!-- Entrada para porcentaje -->
 
                   <div class="col-xs-6" style="padding:0">
                     
@@ -293,17 +293,17 @@
 
             </div>
 
-           <!-- Entrada para seleccionar perfil-->  
+           <!-- Entrada cargar la foto-->  
 
             <div class="form-group">
 
                 <div class="panel">Subir Imagen</div>
 
-                <input type="file" id="nuevaInmagen" name="nuevaImagen">
+                <input type="file" class="nuevaImagen" name="nuevaImagen">
 
                 <p class="help-block">Peso Maximo de la Foto 2 MB</p>
 
-                <img src="views/img/products/Bouquet_de_globos.png" class="img.thumbnail" width="100px">
+                <img src="views/img/products/Bouquet_de_globos.png" class="img.thumbnail previsualizar" width="100px">
 
             </div>
           

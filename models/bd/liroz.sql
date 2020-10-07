@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2020 a las 18:04:50
+-- Tiempo de generación: 07-10-2020 a las 00:50:18
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -114,7 +114,8 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 (40, 6, '6001', 'Te hatsu, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (41, 6, '6002', 'Te hatsu, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (42, 6, '6003', 'Cerveza corona, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
-(43, 6, '6004', 'Cerveza corona, peque?a.', '', 20, 0, 0, 0, '0000-00-00 00:00:00');
+(43, 6, '6004', 'Cerveza corona, peque?a.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
+(44, 7, '7001', 'Pokeron', 'views/img/products/Bouquet_de_globos', 15, 3000, 4200, 0, '2020-10-06 21:43:19');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-06 07:47:32', '2020-10-06 12:47:32'),
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-06 14:44:13', '2020-10-06 19:44:13'),
 (69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-06 10:37:34', '2020-10-06 15:37:34'),
 (71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
 
@@ -173,13 +174,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -411,7 +412,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'liroz', 'productos', '{\"sorted_col\":\"`productos`.`stock`  ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\",\"col_order\":[0,1,2,3,4,5,6,7,8,9],\"col_visib\":[1,1,1,1,1,1,1,1,1,1]}', '2020-10-06 13:57:48');
+('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\",\"col_order\":[0,1,2,3,4,5,6,7,8,9],\"col_visib\":[1,1,1,1,1,1,1,1,1,1]}', '2020-10-06 20:18:22');
 
 -- --------------------------------------------------------
 
@@ -449,7 +450,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-10-06 13:57:02', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-10-06 21:50:12', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
@@ -637,61 +638,6 @@ ALTER TABLE `pma__pdf_pages`
 --
 ALTER TABLE `pma__savedsearches`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- Base de datos: `pos`
---
-CREATE DATABASE IF NOT EXISTS `pos` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `pos`;
---
--- Base de datos: `pos_liroz`
---
-CREATE DATABASE IF NOT EXISTS `pos_liroz` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `pos_liroz`;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `name` text COLLATE utf8_spanish_ci NOT NULL,
-  `user` text COLLATE utf8_spanish_ci NOT NULL,
-  `password` text COLLATE utf8_spanish_ci NOT NULL,
-  `profile` text COLLATE utf8_spanish_ci NOT NULL,
-  `photo` text COLLATE utf8_spanish_ci NOT NULL,
-  `last_login` datetime NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `user`, `password`, `profile`, `photo`, `last_login`, `date`, `estado`) VALUES
-(1, 'usuario administrador', 'admin', '123', 'administrador', '', '0000-00-00 00:00:00', '2020-09-13 13:51:06', 1);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Base de datos: `test`
 --
