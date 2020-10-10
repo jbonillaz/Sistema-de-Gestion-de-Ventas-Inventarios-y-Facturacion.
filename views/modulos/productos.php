@@ -480,3 +480,9 @@
   </div>
 
 </div>
+<?php
+
+     $eliminarProducto = new ControllerProducts();
+     $eliminarProducto -> ctrDeleteProduct();
+
+?>
