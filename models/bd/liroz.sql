@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2020 a las 00:50:18
+-- Tiempo de generación: 10-10-2020 a las 18:45:50
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Versión de PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,6 +51,33 @@ INSERT INTO `categorias` (`id`, `nombre_cat`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `documento` int(11) NOT NULL,
+  `email` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `compras` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `fecha`) VALUES
+(1, 'John Fredy Bonilla', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '2020-10-10 14:43:58'),
+(2, 'John Fredy Bonilla ', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '2020-10-10 15:03:56'),
+(3, 'Fabian Cely', 1118648630, 'cely123@gmail.com', '(310) 873-2637', 'calle 30 20-58 yopal casanare', '1989-10-20', 0, '2020-10-10 16:41:37');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -72,11 +99,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
-(1, 1, '1001', 'Caja tipo hex?gono, grande.', '', 10, 8000, 12000, 0, '2020-10-05 21:19:21'),
-(2, 1, '1002', 'Caja tipo hex?gono, mediana', '', 15, 6000, 10000, 0, '2020-10-05 21:19:08'),
-(3, 1, '1003', 'Caja  tipo hex?gono, peque?a.', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
-(4, 1, '1004', 'Cajas?tipo hielera, mediana', '', 20, 8000, 12000, 0, '0000-00-00 00:00:00'),
-(5, 1, '1005', 'Caja tipo baul, con tapa deslizante, grande.', '', 20, 10000, 20000, 0, '0000-00-00 00:00:00'),
+(1, 1, '1001', 'Caja tipo hexagono grande', 'views/img/products/1001/832.jpg', 10, 8000, 12000, 0, '2020-10-09 23:54:19'),
+(2, 1, '1002', 'Caja tipo hexagono mediana', 'views/img/products/1002/911.jpg', 15, 6000, 10000, 0, '2020-10-09 23:55:16'),
+(3, 1, '1003', 'Caja  tipo hexagono pequena', 'views/img/products/1003/419.jpg', 20, 4000, 8000, 0, '2020-10-09 23:58:23'),
+(4, 1, '1004', 'Caja tipo hielera mediana', 'views/img/products/1004/841.png', 20, 8000, 12000, 0, '2020-10-09 23:59:35'),
+(5, 1, '1005', 'Caja tipo baul con tapa deslizante grande', '', 20, 10000, 20000, 0, '2020-10-10 00:12:47'),
 (6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 20, 8000, 160000, 0, '0000-00-00 00:00:00'),
 (7, 1, '1007', 'Caja cuadrada, mediana', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
 (8, 1, '1008', 'Caja tipo canasta, grande.', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
@@ -114,8 +141,7 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 (40, 6, '6001', 'Te hatsu, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (41, 6, '6002', 'Te hatsu, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (42, 6, '6003', 'Cerveza corona, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
-(43, 6, '6004', 'Cerveza corona, peque?a.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
-(44, 7, '7001', 'Pokeron', 'views/img/products/Bouquet_de_globos', 15, 3000, 4200, 0, '2020-10-06 21:43:19');
+(45, 7, '7001', 'Cerveza Corona Botella 350ml', 'views/img/products/7001/782.jpg', 15, 3000, 4500, 0, '2020-10-10 00:50:06');
 
 -- --------------------------------------------------------
 
@@ -140,7 +166,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-06 14:44:13', '2020-10-06 19:44:13'),
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-10 11:40:09', '2020-10-10 16:40:09'),
 (69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-06 10:37:34', '2020-10-06 15:37:34'),
 (71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
 
@@ -152,6 +178,12 @@ INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`,
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -177,10 +209,16 @@ ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -336,7 +374,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
+('root', '[{\"db\":\"liroz\",\"table\":\"clientes\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
 
 -- --------------------------------------------------------
 
@@ -412,7 +450,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\",\"col_order\":[0,1,2,3,4,5,6,7,8,9],\"col_visib\":[1,1,1,1,1,1,1,1,1,1]}', '2020-10-06 20:18:22');
+('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\"}', '2020-10-10 00:43:51');
 
 -- --------------------------------------------------------
 
@@ -450,7 +488,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-10-06 21:50:12', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-10-10 16:41:44', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
@@ -613,7 +651,7 @@ ALTER TABLE `pma__bookmark`
 -- AUTO_INCREMENT de la tabla `pma__column_info`
 --
 ALTER TABLE `pma__column_info`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pma__export_templates`

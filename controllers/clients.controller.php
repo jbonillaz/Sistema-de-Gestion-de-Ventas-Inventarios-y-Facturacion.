@@ -75,4 +75,18 @@
         }
     }
 
+    /*========================================
+        =        Mostrar Clientes en el sistema con el foreach.      =
+        =============================================*/
+
+    static public function ctrShowClient($item, $valor){
+
+        $tabla = "clientes";
+
+        $respuesta = ModelClient::mdlShowClient($tabla, $item, $valor);
+
+        return $respuesta;
+
+    }
+
  }

@@ -1,12 +1,14 @@
 <?php
 
+require_once "connection.php";
+
 class ModelClient{
 
     /*========================================
         =        Agregar Cliente.      =
         =============================================*/
     
-    static  public function mdlCreateClient($tabla, $datos){
+    static public function mdlCreateClient($tabla, $datos){
 
         $stmt = Connection::connect()->prepare("INSERT INTO $tabla(nombre, documento, email, telefono, direccion, fecha_nacimiento) VALUES (:nombre, :documento, :email, :telefono, :direccion, :fecha_nacimiento)");
 
@@ -32,5 +34,36 @@ class ModelClient{
 
     }
 
+    /*========================================
+        =        Mostrar clientes en el sistema.      =
+        =============================================*/
 
+    static public function mdlShowClient($tabla, $item, $valor){
+
+        if($item != null){
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $tabla");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		// $stmt -> close();
+
+		$stmt = null;
+
+	}
+    
 }

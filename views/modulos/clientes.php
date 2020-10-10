@@ -1,85 +1,124 @@
 <div class="content-wrapper">
 
-    <section class="content-header">
+  <section class="content-header">
         
-        <h1>
+    <h1>
         
         Administrar Clientes
         
-        </h1>
+    </h1>
 
-        <ol class="breadcrumb">
+    <ol class="breadcrumb">
         
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         
-        <li class="active">Administrar Clientes</li>
+      <li class="active">Administrar Clientes</li>
         
-        </ol>
+    </ol>
 
-    </section>
+  </section>
 
         <!-- Main content -->
-    <section class="content">
+  <section class="content">
 
             <!-- Default box -->
-        <div class="box">
-                <div class="box-header with-border">
+    <div class="box">
+
+        <div class="box-header with-border">
                 
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
                     Agregar Clientes
                     
-                </div>
-
-            <div class="box-body">
-                
-            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-                    <thead>
-                    
-                        <tr>
-                        
-                        <th style="width:10px">#</th>
-                        <th>Nombre</th>
-                        <th>Docuemnto ID</th>
-                        <th>Email</th>
-                        <th>Direccion</th>
-                        <th>Fechanacimiento</th>
-                        <th>Total Compras</th>
-                        <th>Ultima Compra</th>
-                        <th>Ingreso al Sistemas</th>
-                        <th>Acciones</th>
-
-                        </tr> 
-
-                    </thead>
-
-                    <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Jose Carmelo</td>
-                            <td>1020722444</td>
-                            <td>cometidas@gmail.com</td>
-                            <td>Yopal Casanare</td>
-                            <td>15-06-1991</td>
-                            <td>10</td>
-                            <td>09-10-2020</td>
-                            <td>09-10-2019</td>
-                            <td>
-                                <div class="btn-group">
-                                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                            </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
-    </section>
+
+      <div class="box-body">
+                
+      <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+                    
+            <thead>
+                        
+                <tr>
+                            
+                  <th style="width:10px">#</th>
+                  <th>Nombre</th>
+                  <th>Docuemnto ID</th>
+                  <th>Email</th>
+                  <th>Direccion</th>
+                  <th>Fechanacimiento</th>
+                  <th>Total Compras</th>
+                  <th>Ultima Compra</th>
+                  <th>Ingreso al Sistemas</th>
+                  <th>Acciones</th>
+
+                </tr> 
+
+            </thead>
+
+          <tbody>
+
+            <?php 
+
+            $item = null;
+                      $valor = null;
+
+            $clientes = ControllerClient::ctrShowClient($item, $valor);
+
+            // var_dump($clientes);
+                      
+                      foreach ($clientes as $key => $value) {
+            
+
+                        echo '<tr>
+            
+                                <td>'.($key+1).'</td>
+            
+                                <td>'.$value["nombre"].'</td>
+            
+                                <td>'.$value["documento"].'</td>
+            
+                                <td>'.$value["email"].'</td>
+            
+                                <td>'.$value["telefono"].'</td>
+            
+                                <td>'.$value["direccion"].'</td>
+            
+                                <td>'.$value["fecha_nacimiento"].'</td>             
+            
+                                <td>'.$value["compras"].'</td>
+            
+                                <td>0000-00-00 00:00:00</td>
+            
+                                <td>'.$value["fecha"].'</td>
+            
+                                <td>
+            
+                                  <div class="btn-group">
+                                      
+                                    <button class="btn btn-warning " data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+            
+                                    <button class="btn btn-danger " idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+            
+                                  </div>  
+            
+                                </td>
+            
+                              </tr>';
+                      
+                        }
+
+                      
+            ?>
+                            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 </div>
     <!--========================================
     =        Modal para agregar cliente.       =
     =============================================-->
-  <div id="modalAgregarCliente" class="modal fade" role="dialog">
+<div id="modalAgregarCliente" class="modal fade" role="dialog">
     
     <div class="modal-dialog">
 
@@ -207,9 +246,6 @@
                 </div>
 
             </form>
-
-              
-
 
             <?php
             
