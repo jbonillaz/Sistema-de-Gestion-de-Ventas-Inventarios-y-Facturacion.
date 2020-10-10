@@ -297,44 +297,48 @@ class ControllerProducts{
 
 		}
 
-	static public function ctrDeleteProduct(){
+		/*========================================
+        =        Eliminar productos.      =
+        =============================================*/
 
-			
+		static public function ctrDeleteProduct(){
 
-		if(isset($_GET["idProducto"])){
+				
 
-				$tabla ="productos";
-				$datos = $_GET["idProducto"];
+			if(isset($_GET["idProducto"])){
 
-				if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/products/default/productos.png"){
+					$tabla ="productos";
+					$datos = $_GET["idProducto"];
 
-					unlink($_GET["imagen"]);
-					rmdir('views/img/products'.$_GET["codigo"]);
+					if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/products/default/productos.png"){
 
-				}
+						unlink($_GET["imagen"]);
+						rmdir('views/img/products'.$_GET["codigo"]);
 
-				$respuesta = ModelProducts::mdlDeleteProduct($tabla, $datos);
+					}
 
-				if($respuesta == "ok"){
+					$respuesta = ModelProducts::mdlDeleteProduct($tabla, $datos);
 
-					echo'<script>
+					if($respuesta == "ok"){
 
-					swal({
-						type: "success",
-						title: "El producto ha sido borrado correctamente",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
-						}).then(function(result){
-									if (result.value) {
+						echo'<script>
 
-									window.location = "productos";
+						swal({
+							type: "success",
+							title: "El producto ha sido borrado correctamente",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+							}).then(function(result){
+										if (result.value) {
 
-									}
-								})
+										window.location = "productos";
 
-					</script>';
+										}
+									})
 
-				}	
-		}		
-	}
+						</script>';
+
+					}	
+			}		
+		}
 }

@@ -70,6 +70,11 @@ session_start();
   <!-- iCheck 1.0.1 -->
   <script src="views/plugins/iCheck/icheck.min.js"></script>
 
+  <!-- InputMask -->
+  <script src="views/plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
 
 </head>
 
