@@ -13,7 +13,7 @@ class AjaxProducts{
       =  Asignar codigo a partir del existente para cada categoria.. =
       =============================================*/
 
-      public $idCategoria;
+    public $idCategoria;
 
     public function ajaxCreateProductCode(){
 
@@ -25,9 +25,25 @@ class AjaxProducts{
         echo json_encode($respuesta);
 
     }
-}
+      /*========================================
+      =  Editar producto... =
+      =============================================*/
+
+    public $idProducto;
+
+    public function ajaxEditProduct(){
+
+      $item = "id";
+      $valor = $this->idProducto;
+
+      $respuesta = ControllerProducts::ctrShowProducts($item, $valor);
+
+      echo json_encode($respuesta);
+
+    }
+ }
         /*========================================
-      =  Generar el codigo apartir de una categoria.. =
+      =  Objeto, Generar el codigo apartir de una categoria.. =
       =============================================*/
 
       if(isset($_POST["idCategoria"])){
@@ -35,5 +51,17 @@ class AjaxProducts{
         $codigoProducto = new AjaxProducts();
         $codigoProducto -> idCategoria = $_POST["idCategoria"];
         $codigoProducto -> ajaxCreateProductCode();
+      
+      }
+
+       /*========================================
+      =  Objeto, Editar producto.. =
+      =============================================*/
+
+      if(isset($_POST["idProducto"])){
+
+        $editarProducto = new AjaxProducts();
+        $editarProducto -> idProducto = $_POST["idProducto"];
+        $editarProducto -> ajaxEditProduct();
       
       }
