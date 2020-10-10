@@ -208,16 +208,6 @@
 
             </form>
 
-              
-
-
-            <?php
-            
-            $crearCliente = new ControllerClient();
-            $crearCliente -> ctrCreateClient();
-            
-            ?>
-
         </div>
 
     </div>
