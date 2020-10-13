@@ -48,9 +48,7 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
-
-                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="Usuario Administrador" readonly>
 
                   </div>
 
@@ -65,39 +63,9 @@
                   <div class="input-group">
                     
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                      <?php 
-                        // preguntamos si no existe alguna venta.
-                        $item = null;
-                        $valor = null;
-
-                        $ventas = SalesController::ctrShowSales($item, $valor);
-
-                        if(!$ventas){
-
-                          echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
-                      
-
-                        }else{
-
-                          foreach ($ventas as $key => $value) {
-                            
-                            
-                          
-                          }
-
-                          $codigo = $value["codigo"] + 1;
-
-
-
-                          echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';
-                  
-
-                    }
-          
-                      
-                      ?>
                     
-
+                    <input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="116546916" readonly>
+                  
                   </div>
                 
                 </div>
@@ -115,21 +83,6 @@
                     <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
 
                     <option value="">Seleccionar cliente</option>
-
-                      <?php 
-                          // preguntamos si no existe alguna venta.
-                          $item = null;
-                          $valor = null;
-                          
-                          $categorias = ControllerClient::ctrShowClient($item, $valor);
-
-                            foreach ($categorias as $key => $value){
-
-                              echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
-
-                            }
-                        
-                      ?>
 
                     </select>
                     
@@ -336,7 +289,7 @@
                   <td>1.</td>                 
                   <td><img src="views/img/products/default/productos.png" class="img-thumbnail" width="40px"></td>
                   <td>00123</td>
-                  <td>Juan Villegas</td>       
+                  <td>Lorem ipsum dolor sit amet</td>       
                   <td>20</td>                 
                   <td>                 
                     <div class="btn-group">
