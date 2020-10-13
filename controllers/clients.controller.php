@@ -158,6 +158,43 @@
             }
  
         }
-    }
+	}
+	/*========================================
+        =        Eliminar Cliente.      =
+		=============================================*/
+		
+	static public function ctrDeleteClient(){
+
+		if(isset($_GET["idCliente"])){
+
+			$tabla ="clientes";
+			$datos = $_GET["idCliente"];
+
+			$respuesta = ModelClient::mdlDeleteClient($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El cliente ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "clientes";
+
+								}
+							})
+
+				</script>';
+
+			}		
+
+		}
+
+	}
 
  }

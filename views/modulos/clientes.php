@@ -264,7 +264,7 @@
 <!--========================================
     =        Modal para editar cliente.       =
     =============================================-->
-    <div id="modalEditarCliente" class="modal fade" role="dialog">
+<div id="modalEditarCliente" class="modal fade" role="dialog">
     
     <div class="modal-dialog">
 
@@ -393,7 +393,7 @@
                 </div>
 
             </form>
-            
+
                 <?php 
                 $editarCliente = new ControllerClient();
                 $editarCliente -> ctrEditClient();
@@ -404,3 +404,8 @@
     </div>
 
 </div>
+
+<?php 
+  $eliminaCliente = new ControllerClient();
+  $eliminaCliente -> ctrDeleteClient();
+?>
