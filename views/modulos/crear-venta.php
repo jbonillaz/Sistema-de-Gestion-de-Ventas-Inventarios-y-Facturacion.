@@ -315,7 +315,7 @@
 
           <div class="box-body">
             
-            <table class="table table-bordered table-striped dt-responsive tablas">
+            <table class="table table-bordered table-striped dt-responsive tablaVentas">
               
                <thead>
 
@@ -329,23 +329,6 @@
                 </tr>
 
               </thead>
-
-              <tbody>
-
-                <tr>
-                  <td>1.</td>                 
-                  <td><img src="views/img/products/default/productos.png" class="img-thumbnail" width="40px"></td>
-                  <td>00123</td>
-                  <td>Juan Villegas</td>       
-                  <td>20</td>                 
-                  <td>                 
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-primary">Agregar</button> 
-                    </div>
-                  </td>
-                </tr>
-
-              </tbody>
 
             </table>
 
