@@ -43,6 +43,7 @@
                   <th>Nombre</th>
                   <th>Docuemnto ID</th>
                   <th>Email</th>
+                  <th>Telefono</th>
                   <th>Direccion</th>
                   <th>Fechanacimiento</th>
                   <th>Total Compras</th>
@@ -58,13 +59,13 @@
 
             <?php 
 
-            $item = null;
-                      $valor = null;
+              $item = null;
+              $valor = null;
 
-            $clientes = ControllerClient::ctrShowClient($item, $valor);
+              $clientes = ControllerClient::ctrShowClient($item, $valor);
 
-            // var_dump($clientes);
-                      
+              // var_dump($clientes);
+                        
                       foreach ($clientes as $key => $value) {
             
 
