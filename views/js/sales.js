@@ -128,8 +128,41 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
   });
 
   /*========================================
-  =  Quitar productos de la TablaVentas. =
+  =  Cuando cargue la tabla cada vez que navegue en ella. =
   =============================================*/
+  $(".tablaVentas").on("draw.dt", function(){
+
+    // console.log("tabla");
+
+    if(localStorage.getItem("quitarProducto") != null){
+
+      var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
+  
+      for(var i = 0; i < listaIdProductos.length; i++){
+  
+        $("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
+        $("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
+  
+      }
+  
+  
+    }
+
+
+
+  });
+
+
+
+
+  /*========================================
+  =  Quitar productos de la venta y recuperar el boton. =
+  =============================================*/
+
+  var idQuitarProducto = [];
+  // Remover el item cada vez que se carga la pagina.
+  localStorage.removeItem("quitarProducto");
+
   $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
     // console.log("button");
@@ -137,6 +170,24 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
     $(this).parent().parent().parent().parent().remove();
 
     var idProducto = $(this).attr("idProducto");
+
+      /*========================================
+      =  Almacenar en el local storage el ID del productoa quitar. =
+      =============================================*/
+
+      if(localStorage.getItem("quitarProducto") == null){
+
+        idQuitarProducto = [];
+      
+      }else{
+    
+        idQuitarProducto.concat(localStorage.getItem("quitarProducto"));
+    
+      }
+
+      idQuitarProducto.push({"idProducto":idProducto});
+
+    	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
 
     $("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
       // activa nuevamente el boton despues de agregarlo y removerlo.
