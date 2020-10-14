@@ -32,7 +32,7 @@
           
           <div class="box-header with-border"></div>
 
-          <form role="form" metohd="post">
+          <form role="form" metohd="post" class="formularioVenta">
 
             <div class="box-body">
   
@@ -147,7 +147,7 @@
 
                   <!-- Descripción del producto -->
                   
-                  <div class="col-xs-6" style="padding-right:0px">
+                  <!-- <div class="col-xs-6" style="padding-right:0px">
                   
                     <div class="input-group">
                       
@@ -157,19 +157,19 @@
 
                     </div>
 
-                  </div>
+                  </div> -->
 
                   <!-- Para modificar la cantidad del producto -->
 
-                  <div class="col-xs-3">
+                  <!-- <div class="col-xs-3">
                     
                      <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
 
-                  </div> 
+                  </div>  -->
 
                   <!-- Precio del producto -->
 
-                  <div class="col-xs-3" style="padding-left:0px">
+                  <!-- <div class="col-xs-3" style="padding-left:0px">
 
                     <div class="input-group">
 
@@ -179,12 +179,12 @@
          
                     </div>
                      
-                  </div> 
+                  </div>  -->
 
                 </div>
 
                 <!--=====================================
-                Boton para agregar producto, solo palica en dispositivos moviles, resoluciones pequeñas.
+                Boton para agregar producto, solo aplica en dispositivos moviles, resoluciones pequeñas.
                 ======================================-->
 
                 <button type="button" class="btn btn-default hidden-lg">Agregar producto</button>
