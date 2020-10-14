@@ -73,8 +73,25 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
             // console.log("respuesta", respuesta);
             var descripcion = respuesta["descripcion"];
           	var stock = respuesta["stock"];
-              var precio = respuesta["precio_venta"];
-              
+            var precio = respuesta["precio_venta"];
+
+            /*========================================
+            =  Evitar agregar productos cuando el stock sea == 0. =
+            =============================================*/
+
+              if(stock == 0){
+
+                swal({
+                title: "El producto no esta disponible disponible",
+                type: "error",
+                confirmButtonText: "¡Cerrar!"
+              });
+    
+              $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+    
+              return;
+    
+                }
                 /*esta era la estructura que estaba en html, 
                 se colocan en el js para que se agrege de 
                 manera dinamica a la factura, nombre de producto
