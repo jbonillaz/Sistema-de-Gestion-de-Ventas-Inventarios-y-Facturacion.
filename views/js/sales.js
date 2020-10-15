@@ -127,7 +127,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
       
                       '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
                          
-                      '<input type="text" class="form-control nuevoPrecioProducto" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
+                      '<input type="text" class="form-control nuevoPrecioProducto" precioReal="'+precio+'" name="nuevoPrecioProducto" value="'+precio+'" readonly required>'+
          
                     '</div>'+
                      
@@ -260,7 +260,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
                       '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
                         
-                      '<input type="number" min="1" class="form-control nuevoPrecioProducto" name="nuevoPrecioProducto" value= readonly required>'+
+                      '<input type="number" min="1" class="form-control nuevoPrecioProducto" precioReal name="nuevoPrecioProducto" readonly required>'+
         
                     '</div>'+
                     
@@ -306,7 +306,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
   });
 
    /*========================================
-   =  Seleccionar producto. =
+   =  Seleccionar producto . =
    =============================================*/
 
    $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
@@ -336,9 +336,41 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
         // $(nuevaDescripcionProducto).attr("idProducto", respuesta["id"]);
         $(nuevaCantidadProducto).attr("stock", respuesta["stock"]);
         $(nuevoPrecioProducto).val(respuesta["precio_venta"]);
+        $(nuevoPrecioProducto).attr("precioReal", respuesta["precio_venta"]);
 
        }
     });
 
 
    });
+
+   /*========================================
+   =  Modificar la cantidad de los produictos 
+   en el formulario de venta.. =
+   =============================================*/
+
+   $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
+
+    var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
+
+    var precioFinal = $(this).val() * precio.attr("precioReal");
+    
+    precio.val(precioFinal);
+
+    // desminuyendo el stock de productos.
+
+    if(Number($(this).val()) > Number($(this).attr("stock"))){
+
+      $(this).val(1);
+
+      swal({
+	      title: "La cantidad supera el Stock",
+	      text: "¡Sólo hay "+$(this).attr("stock")+" unidades!",
+	      type: "error",
+	      confirmButtonText: "¡Cerrar!"
+	    });
+
+    }
+
+   });
+
