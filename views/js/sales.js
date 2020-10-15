@@ -137,6 +137,9 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
 
                 // sumar total de precios.
                 sumarTotalPrecios();
+
+                // Agregar impuesto.
+                agregarImpuesto();
     },
   });
 });
@@ -205,12 +208,17 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
   // conesta condicion llevamos la suma de los productos a 0 en caso de que se eliminen los productos del formulario de venta.
   if($(".nuevoProducto").children().length == 0){
 
+    $("#nuevoImpuestoVenta").val(0);
     $("#nuevoTotalVenta").val(0);
+    $("#nuevoTotalVenta").attr("total", 0);
 
   }else{
 
     // sumar total de precios.
   sumarTotalPrecios();
+
+   // Agregar impuesto.
+   agregarImpuesto();
 
   }
 
@@ -309,6 +317,9 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
             // sumar total de precios.
             sumarTotalPrecios();
 
+             // Agregar impuesto.
+             agregarImpuesto();
+
           }
 
         });
@@ -390,6 +401,10 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
     // sumar total de precios.
     sumarTotalPrecios();
+    
+     // Agregar impuesto.
+     agregarImpuesto();
+
 
    });
    /*========================================
@@ -416,7 +431,34 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
       var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
       // console.log("sumaTotalPrecio", sumaTotalPrecio);
       $("#nuevoTotalVenta").val(sumaTotalPrecio);
+      $("#nuevoTotalVenta").attr("total",sumaTotalPrecio);
 
   }
+  /*========================================
+   = Funcion agregar impuesto.. =
+   =============================================*/
+   function agregarImpuesto(){
+
+    var impuesto = $("#nuevoImpuestoVenta").val();
+
+    var precioTotal = $("#nuevoTotalVenta").attr("total");
+
+    var precioImpuesto = Number(precioTotal * impuesto/100);
+
+    var totalConImpuesto = Number(precioImpuesto) + Number(precioTotal);
+
+    $("#nuevoTotalVenta").val(totalConImpuesto);
+    $("#nuevoPrecioImpuesto").val(precioImpuesto);
+    $("#nuevoPrecioNeto").val(precioTotal);
 
 
+   }
+
+   /*========================================
+   = Funcion para cambiar el impuesto, si es que cambia... =
+   =============================================*/
+   $("#nuevoImpuestoVenta").change(function(){
+
+    agregarImpuesto();
+  
+  });
