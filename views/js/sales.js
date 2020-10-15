@@ -367,11 +367,17 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
     
     precio.val(precioFinal);
 
-    // desminuyendo el stock de productos.
+    // Si la cantidad es superior al stock, regregar al valor inicial.
 
     if(Number($(this).val()) > Number($(this).attr("stock"))){
 
       $(this).val(1);
+
+      var precioFinal = $(this).val() * precio.attr("precioReal");
+
+      precio.val(precioFinal);
+      
+      sumarTotalPrecios();
 
       swal({
 	      title: "La cantidad supera el Stock",
