@@ -75,6 +75,9 @@ session_start();
   <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
   <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
+  <!-- jQueryNumber -->
+  <script src="views/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
 
 </head>
 

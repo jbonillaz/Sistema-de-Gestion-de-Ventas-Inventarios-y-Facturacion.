@@ -140,6 +140,10 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
 
                 // Agregar impuesto.
                 agregarImpuesto();
+                
+                // poner formato al precio de los produictos..
+                $(".nuevoPrecioProducto").number(true, 2);
+
     },
   });
 });
@@ -285,7 +289,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
                       '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
                         
-                      '<input type="number" min="1" class="form-control nuevoPrecioProducto" precioReal name="nuevoPrecioProducto" readonly required>'+
+                      '<input type="text" min="1" class="form-control nuevoPrecioProducto" precioReal name="nuevoPrecioProducto" readonly required>'+
         
                     '</div>'+
                     
@@ -319,6 +323,10 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
              // Agregar impuesto.
              agregarImpuesto();
+
+             // poner formato al precio de los produictos..
+             $(".nuevoPrecioProducto").number(true, 2);
+
 
           }
 
@@ -460,5 +468,10 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
    $("#nuevoImpuestoVenta").change(function(){
 
     agregarImpuesto();
+
+    
   
   });
+
+  // Formato para el precio final..
+  $("#nuevoTotalVenta").number(true, 2);

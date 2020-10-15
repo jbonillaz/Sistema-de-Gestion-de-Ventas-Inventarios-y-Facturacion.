@@ -33,6 +33,7 @@ class AjaxProducts{
     public $traerProductos;
     public $nombreProducto;
 
+
     public function ajaxEditProduct(){
 
       if($this->traerProductos == "ok"){
@@ -111,3 +112,5 @@ class AjaxProducts{
         $traerProductos -> ajaxEditProduct();
       
       }
+
+    
