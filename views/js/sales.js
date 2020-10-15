@@ -134,6 +134,9 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
                   '</div>'+
       
                 '</div>');
+
+                // sumar total de precios.
+                sumarTotalPrecios();
     },
   });
 });
@@ -198,6 +201,20 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
   $("button.recuperarBoton[idProducto='" + idProducto + "']").addClass(
     "btn-primary agregarProducto"
   );
+
+  // conesta condicion llevamos la suma de los productos a 0 en caso de que se eliminen los productos del formulario de venta.
+  if($(".nuevoProducto").children().length == 0){
+
+    $("#nuevoTotalVenta").val(0);
+
+  }else{
+
+    // sumar total de precios.
+  sumarTotalPrecios();
+
+  }
+
+  
 });
 /*========================================
   =  Agregando productos desde el Boton para dispositivos moviles. =
@@ -284,20 +301,13 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
                 );
 
-              }//else{
-              //   swal({
-              //     title: "El producto no esta disponible disponible",
-              //     type: "error",
-              //     confirmButtonText: "¡Cerrar!",
-              //   });
-
-              //   // $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
-              
-              //   return;
-              // }
+              }
 
              
             }
+
+            // sumar total de precios.
+            sumarTotalPrecios();
 
           }
 
@@ -372,5 +382,35 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
     }
 
+    // sumar total de precios.
+    sumarTotalPrecios();
+
    });
+   /*========================================
+   =  Sumar todos los precios del formulario de venta. =
+   =============================================*/
+
+   function sumarTotalPrecios(){
+
+      var precioItem = $(".nuevoPrecioProducto");
+      var arraySumaPrecio = [];  
+
+      for(var i = 0; i < precioItem.length; i++){
+
+      arraySumaPrecio.push(Number($(precioItem[i]).val()));
+      
+    }
+
+      // console.log("arraySumaPrecio", arraySumaPrecio);
+      function sumaArrayPrecios(total, numero){
+
+        return total + numero;
+    
+      }
+      var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
+      // console.log("sumaTotalPrecio", sumaTotalPrecio);
+      $("#nuevoTotalVenta").val(sumaTotalPrecio);
+
+  }
+
 
