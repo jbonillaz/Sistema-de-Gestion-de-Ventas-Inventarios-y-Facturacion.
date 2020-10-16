@@ -475,3 +475,93 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
   // Formato para el precio final..
   $("#nuevoTotalVenta").number(true, 2);
+
+  /*========================================
+   = Seleccionar metodo de pago... =
+   =============================================*/
+
+   $("#nuevoMetodoPago").change(function() {
+
+    var metodo =$(this).val();
+
+    $(this).parent().parent().removeClass("col-xs-6");
+
+    $(this).parent().parent().addClass("col-xs-4");
+
+    if(metodo == "Efectivo"){
+    // entradas cuendo se escoge el metodo de pago.
+      $(this).parent().parent().parent().children(".cajasMetodoPago").html(
+
+        '<div class="col-xs-4">'+
+                          
+          '<div class="input-group">'+
+             
+            '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+            
+            '<input type="text" class="form-control nuevoValorEfectivo" placeholder="00000000"  required>'+
+            
+          '</div>'+
+
+        '</div>'+
+
+        '<div class="col-xs-4 capturarCambioEfectivo" style="padding-left:0px">'+
+
+          '<div class="input-group">'+
+
+            '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+
+            '<input type="text" class="form-control nuevoCambioEfectivo" name="nuevoCambioEfectivo" placeholder="000000" readonly required>'+
+
+          '</div>'+
+
+			 '</div>'
+
+      );
+
+       // Formato para el precio..
+     $("#nuevoValorEfectivo").number(true, 2);
+     $("#nuevoCambioEfectivo").number(true, 2);
+
+    }else{
+
+      $(this).parent().parent().removeClass('col-xs-6');
+
+      $(this).parent().parent().addClass('col-xs-4');
+
+      $(this).parent().parent().parent().children('.cajasMetodoPago').html(
+
+        '<div class="col-xs-6 style="padding-left:0px">'+
+                          
+          '<div class="input-group">'+
+             
+            '<input type="text" class="form-control" id="nuevoCodigoTransaccion"  name="nuevoCodigoTransaccion" placeholder="Codigo transaccion"  required>'+
+            
+            '<span class="input-group-addon"><i class="fa fa-lock"></i></span>'+
+
+          '</div>'+
+
+        '</div>'
+
+      );
+
+    }
+
+
+   });
+
+   /*========================================
+   = Cambio en efectivo... =
+   =============================================*/
+
+   $(".formularioVenta").on("change", "input.nuevoValorEfectivo", function(){
+
+    var efectivo = $(this).val();
+    // resta del efectivo.
+    var cambio =  Number(efectivo) - Number($('#nuevoTotalVenta').val());
+
+    var nuevoCambioEfectivo = $(this).parent().parent().parent().children('.capturarCambioEfectivo').children().children('.nuevoCambioEfectivo');
+
+    nuevoCambioEfectivo.val(cambio);
+
+
+   });
