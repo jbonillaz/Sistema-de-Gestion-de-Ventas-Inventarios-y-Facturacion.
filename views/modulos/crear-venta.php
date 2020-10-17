@@ -32,7 +32,7 @@
           
           <div class="box-header with-border"></div>
 
-          <form role="form" metohd="post" class="formularioVenta">
+          <form role="form" method="POST" class="formularioVenta">
 
             <div class="box-body">
   
@@ -48,7 +48,7 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
 
                     <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
 
@@ -57,7 +57,7 @@
                 </div> 
 
                 <!--=====================================
-                Codigo de la venta.
+                Entrada Codigo de la venta.
                 ======================================--> 
 
                 <div class="form-group">
@@ -148,6 +148,8 @@
                 
                 </div>
 
+                <input type="hidden" id="listaProductos" name="listaProductos">
+
                 <!--=====================================
                 Boton para agregar producto, solo aplica en dispositivos moviles, resoluciones pequeñas.
                 ======================================-->
@@ -159,7 +161,7 @@
                 <div class="row">
 
                   <!--=====================================
-                  Entrada para el impuedto y total.
+                  Entrada para el impuesto y total.
                   ======================================-->
                   
                   <div class="col-xs-8 pull-right">
@@ -186,6 +188,7 @@
                               <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
                               
                               <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
+
                               <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
 
 
@@ -201,9 +204,10 @@
                            
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
 
-                              <input type="text" min="1" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="00000" total="" readonly required>
+                              <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="00000" total="" readonly required>
                               
-                        
+                              <input type="hidden" name="totalVenta" id="totalVenta">  
+
                             </div>
 
                           </td>
@@ -241,11 +245,11 @@
 
                   </div>
 
-                  <div class="cajasMetodoPago">
+                  <div class="cajasMetodoPago"></div>
 
-                      <!-- <input type="hidden" id="listaMetodoPago" name="listaMetodoPago"> -->
+                      <input type="hidden" id="listaMetodoPago" name="listaMetodoPago">
 
-                  </div>
+                  
 
                 </div>
 
@@ -253,15 +257,23 @@
       
               </div>
 
-          </div>
+            </div>
 
-          <div class="box-footer">
+            <div class="box-footer">
 
-            <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
+              <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
 
-          </div>
+            </div>
 
-        </form>
+          </form>
+
+        <?php
+        
+        $guardarVenta = new SalesController();
+        $guardarVenta -> ctrCreateSale();
+        
+        
+        ?>
 
         </div>
             
