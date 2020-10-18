@@ -397,7 +397,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
     var nuevoStock = Number($(this).attr("stock")) - $(this).val();
 
-    $(this).attr("stock", nuevoStock);
+    $(this).attr("nuevoStock", nuevoStock);
 
     // Si la cantidad es superior al stock, regregar al valor inicial.
 
@@ -500,9 +500,11 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
    $("#nuevoMetodoPago").change(function() {
 
+    var metodo =$(this).val();
+
     if(metodo == "Efectivo"){
 
-      var metodo =$(this).val();
+      
 
       $(this).parent().parent().removeClass("col-xs-6");
 
@@ -647,3 +649,15 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
 
    }
+
+   /*========================================
+   = Boton Editar Ventas.... =
+   =============================================*/
+
+   $(".tablas").on("click", ".btnEditarVenta", function(){
+
+    var idVenta = $(this).attr("idVenta");
+
+	  window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
+
+   });
