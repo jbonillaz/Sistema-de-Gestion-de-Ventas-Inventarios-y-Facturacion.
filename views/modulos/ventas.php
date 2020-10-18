@@ -53,22 +53,58 @@
                     </thead>
 
                     <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>1001</td>
-                            <td>Juen Villegas</td>
-                            <td>Julio Gomez</td>
-                            <td>TC-1020722444</td>
-                            <td>USD$1000</td>
-                            <td>USD$1190</td>
-                            <td>2020-10-13- 11:38:12</td>
-                            <td>
-                                <div class="btn-group">
-                                <button class="btn btn-info"><i class="fa fa-print"></i></button>
-                                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                            </tr>
+                            <!-- mostrar las ventas en el sistema. -->
+                        <?php 
+
+                            $item = null;
+                            $valor = null;
+
+                            $respuesta = SalesController::ctrShowSales($item, $valor);
+
+                            foreach ($respuesta as $key => $value) {
+
+                                echo '<tr>
+                                        <td>'.($key+1).'</td>
+                                        <td>'.$value["codigo"].'</td>';
+
+                                        $itemCliente = "id";
+                                        $valorCliente = $value["id_cliente"];
+
+                                        $respuestaCliente = ControllerClient::ctrShowClient($itemCliente, $valorCliente);
+
+                                        echo '<td>'.$respuestaCliente["nombre"].'</td>';
+
+                                        $itemUsuario = "id";
+                                        $valorUsuario = $value["id_vendedor"];
+
+                                        $respuestaUsuario = ControllersUsers::ctrshowusers($itemUsuario, $valorUsuario);
+
+                                        echo '<td>'.$respuestaUsuario["nombre"].'</td>
+
+                                        <td>'.$value["metodo_pago"].'</td>
+
+                                        <td>$ '.number_format($value["neto"],2).'</td>
+
+                                        <td>$ '.number_format($value["total"],2).'</td>
+
+                                        <td>'.$value["fecha"].'</td>
+
+                                        <td>
+                                            <div class="btn-group">
+                                            <button class="btn btn-info"><i class="fa fa-print"></i></button>
+
+                                            <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
+                                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>';
+
+                            }
+
+
+                        ?>  
+                           
                     </tbody>
                 </table>
             </div>
