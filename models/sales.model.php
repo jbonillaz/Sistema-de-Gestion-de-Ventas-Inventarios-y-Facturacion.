@@ -101,4 +101,30 @@ class SalesModel{
 
 	}
 
+		/*========================================
+        =       Eliminar ventas      =
+		=============================================*/
+
+	static public function mdlDeleteSale($tabla, $datos){
+
+		$stmt = Connection::connect()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		// $stmt -> close();
+
+		$stmt = null;
+
+	}
+
 }
