@@ -518,7 +518,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
              
             '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
             
-            '<input type="text" class="form-control" id="nuevoValorEfectivo" placeholder="00000000"  required>'+
+            '<input type="text" class="form-control" id="nuevoValorEfectivo" placeholder="00000000" required>'+
             
           '</div>'+
 
@@ -710,7 +710,7 @@ $('.tablaVentas').on( 'draw.dt', function(){
 Eliminar ventas.
 =============================================*/
 
-$(".btnEliminarVenta").click(function(){
+$(".tablas").on("click", ".btnEliminarVenta", function(){
 
   var idVenta = $(this).attr("idVenta");
 
@@ -733,4 +733,18 @@ $(".btnEliminarVenta").click(function(){
 
 
 });
+
+/*=============================================
+Imprimir facturas.,
+=============================================*/
+
+$(".tablas").on("click", ".btnImprimirFactura", function() {
+
+  var codigoVenta = $(this).attr("codigoVenta");
+
+  window.open("extensions/tcpdf/pdf/factura.php?codigo="+codigoVenta, "_blank");
+  
+});
+
+
 
