@@ -23,13 +23,29 @@
 
             <!-- Default box -->
         <div class="box">
+
                 <div class="box-header with-border">
-                <a href="crear-venta">
-                  <button class="btn btn-primary">
-                      Agregar Venta
-                      
-                  </div>
-                </a>
+
+                    <a href="crear-venta">
+
+                        <button class="btn btn-primary">
+                            Agregar Venta
+                            
+                        </button>
+
+                    </a>
+
+                    <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                        
+                        <span>
+                            <i class="fa fa-calendar"></i> Rango de fecha
+                        </span>
+
+                        <i class="fa fa-caret-down"></i>
+
+                    </button>
+
+                </div>
 
             <div class="box-body">
                 
@@ -55,11 +71,20 @@
                     <tbody>
                             <!-- mostrar las ventas en el sistema. -->
                         <?php 
+                                
+                                if(isset($_GET["fechaInicial"])){
 
-                            $item = null;
-                            $valor = null;
+                                    $fechaInicial = $_GET["fechaInicial"];
+                                    $fechaFinal = $_GET["fechaFinal"];
+                        
+                                  }else{
+                        
+                                    $fechaInicial = null;
+                                    $fechaFinal = null;
+                        
+                                  }
 
-                            $respuesta = SalesController::ctrShowSales($item, $valor);
+                            $respuesta = SalesController::ctrRangesSaleDates($fechaInicial, $fechaFinal);
 
                             foreach ($respuesta as $key => $value) {
 

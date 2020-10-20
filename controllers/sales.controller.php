@@ -454,4 +454,17 @@ class SalesController{
 
     }
 
+        /*========================================
+        =        Rango para las fechas de venta.     =
+        =============================================*/
+
+    static public function ctrRangesSaleDates($fechaInicial, $fechaFinal){
+
+        $tabla = "ventas";
+
+        $respuesta = SalesModel::mdlRangesSaleDates($tabla, $fechaInicial, $fechaFinal);
+
+        return $respuesta;
+    }
+
 }
