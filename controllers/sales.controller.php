@@ -71,7 +71,6 @@ class SalesController{
 
                 $item1a = "compras";
                 $valor1a = array_sum($totalProductosComprados) + $traerCliente["compras"];
-
                 $comprasCliente = ModelClient::mdlUpdateClient($tablaClientes, $item1a, $valor1a, $valor);
 
 
@@ -145,9 +144,9 @@ class SalesController{
 
                     $traerVenta = SalesModel::mdlShowSales($tabla, $item, $valor);
 
-                    /*========================================
-                    =Verificar si vienen productos editados=
-                    =============================================*/
+                    // /*========================================
+                    // =Verificar si vienen productos editados=
+                    // =============================================*/
 
                     if($_POST["listaProductos"] == ""){
 
@@ -209,53 +208,51 @@ class SalesController{
                         = Aumentar las compras del cliente, reducir el stock y aumentas de los productos.      =
                         =============================================*/
         
-                        $listaProducto_2 = json_decode($listaProductos, true);
+                        $listaProductos_2 = json_decode($listaProductos, true);
         
                         // var_dump($listaProductos);
         
-                        $totalProductosComprado_2 = array();
+                        $totalProductosComprados_2 = array();
         
-                        foreach ($listaProducto_2 as $key => $value){
+                        foreach ($listaProductos_2 as $key => $value){
         
-                            array_push($totalProductosComprado_2, $value["cantidad"]);
+                            array_push($totalProductosComprados_2, $value["cantidad"]);
         
-                            $tablaProducto_2 = "productos";
+                            $tablaProductos_2 = "productos";
         
-                            $ite_2 = "id";
-                            $valo_2 = $value["id"];
+                            $item_2 = "id";
+                            $valor_2 = $value["id"];
                             
-                            $traerProduct_2 = ModelProducts::mdlShowProducts($tablaProductos, $ite_2, $valo_2);
+                            $traerProducto_2 = ModelProducts::mdlShowProducts($tablaProductos_2, $item_2, $valor_2);
         
                             // var_dump($traerProducto["ventas"]);
-                            $item_2 = "ventas";
+                            $item1a_2 = "ventas";
+                            $valor1a_2 = $value["cantidad"] + $traerProducto_2["ventas"];
         
-                            $valor_2 = $value["cantidad"] + $traerProduct_2["ventas"];
-                            
+                            $nuevasVentas_2 = ModelProducts::mdlUpdateProduct($tablaProductos_2, $item1a_2, $valor1a_2, $valor_2);
         
-                            $nuevasVenta_2 = ModelProducts::mdlUpdateProduct($tablaProductos, $item_2, $valor_2, $valo_2);
-        
-                            $item_2 = "stock";
-                            $valor_2 = $value["stock"];
-                            
-                            $nuevoStoc_2 = ModelProducts::mdlUpdateProduct($tablaProductos, $item_2, $valor_2, $valo_2);
+                            $item1b_2 = "stock";
+                            $valor1b_2 = $traerProducto_2["stock"] - $value["cantidad"];
+
+                            $nuevoStock_2 = ModelProducts::mdlUpdateProduct($tablaProductos_2, $item1b_2, $valor1b_2, $valor_2);
         
                         }
         
-                        $tablaCliente_2 = "clientes";
+                        $tablaClientes_2 = "clientes";
         
-                        $ite_2 = "id";
-                        $valo_2 = $_POST["seleccionarCliente"];
+                        $item_2 = "id";
+                        $valor_2b = $_POST["seleccionarCliente"];
                         
-                        $traerClient_2 = ModelClient::mdlShowClient($tablaCliente_2, $ite_2, $valo_2);
+                        $traerCliente_2 = ModelClient::mdlShowClient($tablaClientes_2, $item_2, $valor_2b);
                         // var_dump($traerCliente);
         
-                        $item_2 = "compras";
-                        $valor_2 = array_sum($totalProductosComprado_2) + $traerClient_2["compras"];
+                        $item1a_2 = "compras";
+                        $valor1a_2 = array_sum($totalProductosComprados_2) + $traerCliente_2["compras"];
         
-                        $comprasClient_2 = ModelClient::mdlUpdateClient($tablaCliente_2, $item_2, $valor_2, $valo_2);
+                        $comprasCliente_2 = ModelClient::mdlUpdateClient($tablaClientes_2, $item1a_2, $valor1a_2, $valor_2b);
         
         
-                        $item_2 = "ultima_compra";
+                        $item1b_2 = "ultima_compra";
                         
                         date_default_timezone_set('America/Bogota');
         
@@ -263,11 +260,11 @@ class SalesController{
                         $hora = date('H:i:s');
                         $valor_2 = $fecha.' '.$hora;
         
-                        $fechaClient_2 = ModelClient::mdlUpdateClient($tablaCliente_2, $item_2, $valor_2, $valo_2);
+                        $fechaCliente_2 = ModelClient::mdlUpdateClient($tablaClientes_2, $item1b_2, $valor1b_2, $valor_2b);
                     }
-                    /*========================================
-                    =        Guardar cambios de la venta.      =
-                    =============================================*/
+                    // /*========================================
+                    // =        Guardar cambios de la venta.      =
+                    // =============================================*/
     
                     $tabla = "ventas";
     
