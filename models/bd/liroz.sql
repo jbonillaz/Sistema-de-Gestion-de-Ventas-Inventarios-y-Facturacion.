@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2020 a las 22:14:05
+-- Tiempo de generación: 21-10-2020 a las 03:43:14
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -63,6 +63,7 @@ CREATE TABLE `clientes` (
   `direccion` text COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `compras` int(11) NOT NULL,
+  `ultima_compra` datetime NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -70,11 +71,11 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `fecha`) VALUES
-(1, 'John Fredy Bonilla', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '2020-10-10 14:43:58'),
-(2, 'Carlos Danilo Moncada', 1118643352, 'danimoncada@gmail.com', '(301) 341-6185', 'Calle 24 # 15-28', '1990-03-10', 0, '2020-10-13 15:26:32'),
-(3, 'Fabian Cely', 1118648630, 'cely123@gmail.com', '(310) 873-2637', 'calle 30 20-58 yopal casanare', '1989-10-20', 0, '2020-10-10 16:41:37'),
-(4, 'Maria Monica', 1116548759, 'mariacece@gmail.com', '(310) 782-7439', 'Carrera 10 # 20-12 Yopal casanare', '1991-06-15', 0, '2020-10-13 15:27:08');
+INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `ultima_compra`, `fecha`) VALUES
+(1, 'John Fredy Bonilla', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '0000-00-00 00:00:00', '2020-10-19 16:58:02'),
+(2, 'Carlos Danilo Moncada', 1118643352, 'danimoncada@gmail.com', '(301) 341-6185', 'Calle 24 # 15-28', '1990-03-10', 18, '2020-10-20 19:44:14', '2020-10-21 00:51:17'),
+(3, 'Fabian Cely', 1118648630, 'cely123@gmail.com', '(310) 873-2637', 'calle 30 20-58 yopal casanare', '1989-10-20', 23, '0000-00-00 00:00:00', '2020-10-21 00:51:17'),
+(4, 'Maria Monica', 1116548759, 'mariacece@gmail.com', '(310) 782-7439', 'Carrera 10 # 20-12 Yopal casanare', '1991-06-15', 23, '2020-10-20 14:23:23', '2020-10-20 19:23:23');
 
 -- --------------------------------------------------------
 
@@ -100,13 +101,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
-(1, 1, '1001', 'Caja tipo hexagono grande', 'views/img/products/1001/832.jpg', 10, 8000, 12000, 0, '2020-10-09 23:54:19'),
-(2, 1, '1002', 'Caja tipo hexagono mediana', 'views/img/products/1002/911.jpg', 15, 6000, 10000, 0, '2020-10-09 23:55:16'),
-(3, 1, '1003', 'Caja  tipo hexagono pequena', 'views/img/products/1003/419.jpg', 20, 4000, 8000, 0, '2020-10-09 23:58:23'),
-(4, 1, '1004', 'Caja tipo hielera mediana', 'views/img/products/1004/841.png', 20, 8000, 12000, 0, '2020-10-09 23:59:35'),
-(5, 1, '1005', 'Caja tipo baul con tapa deslizante grande', '', 20, 10000, 20000, 0, '2020-10-10 00:12:47'),
-(6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 20, 8000, 160000, 0, '0000-00-00 00:00:00'),
-(7, 1, '1007', 'Caja cuadrada, mediana', '', 20, 4000, 8000, 0, '0000-00-00 00:00:00'),
+(1, 1, '1001', 'Caja tipo hexagono grande', 'views/img/products/1001/832.jpg', 11, 8000, 12000, 9, '2020-10-21 00:51:17'),
+(2, 1, '1002', 'Caja tipo hexagono mediana', 'views/img/products/1002/911.jpg', 14, 6000, 10000, 6, '2020-10-21 00:51:17'),
+(3, 1, '1003', 'Caja  tipo hexagono pequena', 'views/img/products/1003/419.jpg', 14, 4000, 8000, 6, '2020-10-21 00:44:14'),
+(4, 1, '1004', 'Caja tipo hielera mediana', 'views/img/products/1004/841.png', 17, 8000, 12000, 3, '2020-10-20 16:34:55'),
+(5, 1, '1005', 'Caja tipo baul con tapa deslizante grande', '', 19, 10000, 20000, 1, '2020-10-20 16:34:55'),
+(6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 19, 8000, 160000, 1, '2020-10-20 16:34:55'),
+(7, 1, '1007', 'Caja cuadrada, mediana', '', 19, 4000, 8000, 1, '2020-10-20 16:34:55'),
 (8, 1, '1008', 'Caja tipo canasta, grande.', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
 (9, 1, '1009', 'Caja tipo canasta, mediana.', '', 20, 5000, 10000, 0, '0000-00-00 00:00:00'),
 (10, 1, '1010', 'Caja vinera, grande.', '', 20, 8000, 16000, 0, '0000-00-00 00:00:00'),
@@ -142,7 +143,7 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 (40, 6, '6001', 'Te hatsu, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (41, 6, '6002', 'Te hatsu, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (42, 6, '6003', 'Cerveza corona, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
-(45, 7, '7001', 'Cerveza Corona Botella 350ml', 'views/img/products/7001/782.jpg', 15, 3000, 4500, 0, '2020-10-10 00:50:06');
+(45, 7, '7001', 'Cerveza Corona Botella 350ml', 'views/img/products/7001/782.jpg', 20, 3000, 4500, 0, '2020-10-19 16:43:52');
 
 -- --------------------------------------------------------
 
@@ -167,8 +168,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-13 08:19:10', '2020-10-13 13:19:10'),
-(69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-06 10:37:34', '2020-10-06 15:37:34'),
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-20 19:52:33', '2020-10-21 00:52:33'),
+(69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-20 14:23:33', '2020-10-20 19:23:33'),
 (71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
 
 -- --------------------------------------------------------
@@ -189,6 +190,20 @@ CREATE TABLE `ventas` (
   `metodo_pago` text COLLATE utf8_spanish_ci NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `codigo`, `id_cliente`, `id_vendedor`, `productos`, `impuesto`, `neto`, `total`, `metodo_pago`, `fecha`) VALUES
+(15, 10001, 3, 58, '[{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"2\",\"stock\":\"14\",\"precio\":\"10000\",\"total\":\"20000\"}]', 6080, 32000, 38080, 'Efectivo', '2020-10-21 00:51:17'),
+(16, 10002, 2, 58, '[{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"3\",\"stock\":\"16\",\"precio\":\"10000\",\"total\":\"30000\"},{\"id\":\"4\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"12000\",\"total\":\"24000\"}]', 10260, 54000, 64260, 'Efectivo', '2019-11-21 17:27:18'),
+(17, 10003, 4, 58, '[{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"3\",\"stock\":\"16\",\"precio\":\"12000\",\"total\":\"36000\"},{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"10000\",\"total\":\"10000\"},{\"id\":\"4\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"1\",\"stock\":\"17\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"3\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"8000\",\"total\":\"8000\"},{\"id\":\"5\",\"descripcion\":\"Caja tipo baul con tapa deslizante grande\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"20000\",\"total\":\"20000\"},{\"id\":\"6\",\"descripcion\":\"Caja tipo baul, con tapa deslizante, mediana.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"160000\",\"total\":\"160000\"},{\"id\":\"7\",\"descripcion\":\"Caja cuadrada, mediana\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"8000\",\"total\":\"8000\"}]', 48260, 254000, 302260, 'Efectivo', '2020-10-19 16:34:55'),
+(18, 10004, 2, 58, '[{\"id\":\"\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"4\",\"stock\":\"13\",\"precio\":\"12000\",\"total\":\"48000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, mediana\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"12000\",\"total\":\"24000\"},{\"id\":\"\",\"descripcion\":\"Caja dulcera, grande.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"6000\",\"total\":\"18000\"}]', 19380, 102000, 121380, 'TC-568965847', '2020-08-18 19:22:42'),
+(19, 10005, 4, 58, '[{\"id\":\"\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"8000\",\"total\":\"16000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, grande.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"14000\",\"total\":\"42000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"4\",\"stock\":\"16\",\"precio\":\"2000\",\"total\":\"8000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo ventana ?nica, mediana.\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"2200\",\"total\":\"11000\"}]', 14630, 77000, 91630, 'TD-598745869', '2020-09-16 19:23:23'),
+(20, 10006, 3, 69, '[{\"id\":\"\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"5\",\"stock\":\"12\",\"precio\":\"12000\",\"total\":\"60000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, grande.\",\"cantidad\":\"6\",\"stock\":\"14\",\"precio\":\"14000\",\"total\":\"84000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"2000\",\"total\":\"4000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"2000\",\"total\":\"10000\"}]', 30020, 158000, 188020, 'TC-58548569', '2020-09-24 19:24:09'),
+(21, 10007, 2, 69, '[{\"id\":\"\",\"descripcion\":\"Caja tipo canasta, grande.\",\"cantidad\":\"4\",\"stock\":\"16\",\"precio\":\"12000\",\"total\":\"48000\"},{\"id\":\"\",\"descripcion\":\"Seleccione el producto\",\"cantidad\":\"1\",\"stock\":\"-3\",\"precio\":\"\",\"total\":\"0\"},{\"id\":\"\",\"descripcion\":\"Caja tipo baul con tapa deslizante grande\",\"cantidad\":\"5\",\"stock\":\"14\",\"precio\":\"20000\",\"total\":\"100000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo baul, con tapa deslizante, mediana.\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"160000\",\"total\":\"160000\"}]', 58520, 308000, 366520, 'Efectivo', '2020-10-20 19:25:35'),
+(22, 10008, 2, 58, '[{\"id\":\"3\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"5\",\"stock\":\"14\",\"precio\":\"8000\",\"total\":\"40000\"},{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"5\",\"stock\":\"11\",\"precio\":\"12000\",\"total\":\"60000\"}]', 19000, 100000, 119000, 'TC-789652', '2020-10-21 00:44:47');
 
 --
 -- Índices para tablas volcadas
@@ -238,7 +253,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -256,7 +271,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Base de datos: `phpmyadmin`
 --
@@ -413,7 +428,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"ventas\"},{\"db\":\"liroz\",\"table\":\"clientes\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
+('root', '[{\"db\":\"liroz\",\"table\":\"ventas\"},{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"clientes\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
 
 -- --------------------------------------------------------
 
@@ -484,6 +499,7 @@ CREATE TABLE `pma__table_info` (
 --
 
 INSERT INTO `pma__table_info` (`db_name`, `table_name`, `display_field`) VALUES
+('liroz', 'clientes', 'id'),
 ('liroz', 'productos', 'codigo'),
 ('liroz', 'ventas', 'productos');
 
@@ -506,7 +522,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\"}', '2020-10-10 00:43:51');
+('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\"}', '2020-10-19 16:43:44');
 
 -- --------------------------------------------------------
 
@@ -544,7 +560,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-10-13 20:04:19', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2020-10-21 01:42:44', '{\"Console\\/Mode\":\"show\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
