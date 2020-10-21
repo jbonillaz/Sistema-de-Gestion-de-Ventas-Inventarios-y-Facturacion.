@@ -34,7 +34,7 @@
                         </button>
 
                     </a>
-
+                        <!-- para rango de fecha. -->
                     <button type="button" class="btn btn-default pull-right" id="daterange-btn">
                         
                         <span>

@@ -810,7 +810,7 @@ $(".tablas").on("click", ".btnImprimirFactura", function() {
     Cancelar hoy.
     =============================================*/
 
-    $(".daterangepicker.opensleft .ranges li").on("click", function(){
+    $(".daterangepicker.opensleft.ranges li").on("click", function(){
 
       var textoHoy = $(this).attr("data-range-key");
 
@@ -828,7 +828,6 @@ $(".tablas").on("click", ".btnImprimirFactura", function() {
           var fechaFinal = año+"-0"+mes+"-"+dia;
     
         }else if(dia < 10){
-    
           var fechaInicial = año+"-"+mes+"-0"+dia;
           var fechaFinal = año+"-"+mes+"-0"+dia;
     
