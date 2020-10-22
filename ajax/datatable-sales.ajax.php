@@ -12,9 +12,10 @@ class SaleProductsTable{
     public function ShowSaleProductsTable(){
 
       $item = null;
-    	$valor = null;
+      $valor = null;
+      $orden ="id";
 
-  		$productos = ControllerProducts::ctrShowProducts($item, $valor);	
+  		$productos = ControllerProducts::ctrShowProducts($item, $valor, $orden);	
 
       
 

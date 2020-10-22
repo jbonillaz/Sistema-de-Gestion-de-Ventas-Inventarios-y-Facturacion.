@@ -15,9 +15,11 @@ class ProductTable{
     public function ShowProductTable(){
 
       $item = null;
-    	$valor = null;
+      $valor = null;
+      $orden ="id";
+      
 
-  		$productos = ControllerProducts::ctrShowProducts($item, $valor);	
+  		$productos = ControllerProducts::ctrShowProducts($item, $valor, $orden);	
 
       
 

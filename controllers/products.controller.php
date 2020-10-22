@@ -10,11 +10,13 @@ class ControllerProducts{
         =        Mostrar Productos.      =
         =============================================*/
 
-        static public function ctrShowProducts($item, $valor){
+        static public function ctrShowProducts($item, $valor, $orden){
 
-                $tabla = "productos";
+				$tabla = "productos";
 
-                $reply = ModelProducts::mdlShowProducts($tabla, $item, $valor);
+				// $orden = "id";
+			
+                $reply = ModelProducts::mdlShowProducts($tabla, $item, $valor, $orden);
 
                 return $reply;
 
@@ -340,5 +342,20 @@ class ControllerProducts{
 
 					}	
 			}		
+		}
+
+		/*========================================
+        =       Mostar suma de productos.      =
+        =============================================*/
+
+		static public function ctrShowSumSales(){
+
+			$tabla = "productos";
+
+			$respuesta = ModelProducts::mdlShowSumSales($tabla);
+
+			return $respuesta;
+
+
 		}
 }

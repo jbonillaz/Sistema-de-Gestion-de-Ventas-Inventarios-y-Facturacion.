@@ -43,8 +43,9 @@ class SalesController{
 
                     $item = "id";
                     $valor = $value["id"];
+                    $orden ="id";
                     
-                    $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor);
+                    $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor, $orden);
 
                     // var_dump($traerProducto["ventas"]);
                     $item1a = "ventas";
@@ -142,6 +143,7 @@ class SalesController{
                     $item = "codigo";
                     $valor = $_POST["editarVenta"];
 
+
                     $traerVenta = SalesModel::mdlShowSales($tabla, $item, $valor);
 
                     // /*========================================
@@ -172,8 +174,9 @@ class SalesController{
 
                             $item = "id";
                             $valor = $value["id"];
+                            $orden ="id";
 
-                            $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor);
+                            $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor, $orden);
                             
                             $item1a = "ventas";
         
@@ -222,8 +225,9 @@ class SalesController{
         
                             $item_2 = "id";
                             $valor_2 = $value["id"];
+                            $orden = "id";
                             
-                            $traerProducto_2 = ModelProducts::mdlShowProducts($tablaProductos_2, $item_2, $valor_2);
+                            $traerProducto_2 = ModelProducts::mdlShowProducts($tablaProductos_2, $item_2, $valor_2, $orden);
         
                             // var_dump($traerProducto["ventas"]);
                             $item1a_2 = "ventas";
@@ -317,6 +321,7 @@ class SalesController{
 			$item = "id";
             $valor = $_GET["idVenta"];
             
+            
             $traerVenta = SalesModel::mdlShowSales($tabla, $item, $valor);
 
                     /*=============================================
@@ -391,9 +396,10 @@ class SalesController{
 
                             $item = "id";
                             $valor = $value["id"];
+                            $orden ="id";
 
-                            $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor);
-                            
+                            $traerProducto = ModelProducts::mdlShowProducts($tablaProductos, $item, $valor, $orden);
+                         
                             $item1a = "ventas";
         
                             $valor1a = $traerProducto["ventas"] - $value["cantidad"];

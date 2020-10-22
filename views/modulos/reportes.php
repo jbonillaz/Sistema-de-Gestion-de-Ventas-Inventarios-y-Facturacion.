@@ -46,12 +46,42 @@
         <div class="row">
 
           <div class="col-xs-12">
-
+            <!-- Graficco de ventas. -->
           <?php
 
           include "reportes/grafico-ventas.php";
 
           ?>
+
+          </div>
+
+          <div class="col-md-6 col-xs-12">
+              <!-- Grafico de los productos más vendidos. -->
+            <?php
+
+              include "reportes/productos-mas-vendidos.php";
+
+            ?>
+
+          </div>
+
+          <div class="col-md-6 col-xs-12">
+              <!-- Grafico de los mejores vendedores. -->
+            <?php
+
+              include "reportes/vendedores.php";
+
+            ?>
+
+          </div>
+
+          <div class="col-md-6 col-xs-12">
+              <!-- Grafico de los mejores clientes. -->
+            <?php
+
+              include "reportes/mejor-cliente.php";
+
+            ?>
 
           </div>
 

@@ -8,7 +8,7 @@ class ModelProducts{
         =        Mostar productos..     =
         =============================================*/
 
-    static public function mdlShowProducts($tabla, $item, $valor){
+    static public function mdlShowProducts($tabla, $item, $valor, $orden){
 
 
         if($item != null){
@@ -23,7 +23,7 @@ class ModelProducts{
 
         }else{
 
-            $stmt = Connection::connect()->prepare("SELECT * FROM $tabla");
+            $stmt = Connection::connect()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
 
             $stmt -> execute();
 
@@ -154,5 +154,24 @@ class ModelProducts{
 		// $stmt -> close();
 
 		$stmt = null;
-    }
+	}
+	
+		/*========================================
+        =        Mostrar suma venta   =
+        =============================================*/
+	
+	static public function mdlShowSumSales($tabla){
+
+		$stmt = Connection::connect()->prepare("SELECT SUM(ventas) as total FROM $tabla");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		// $stmt -> close();
+
+		$stmt = null;
+
+
+	}
 }
