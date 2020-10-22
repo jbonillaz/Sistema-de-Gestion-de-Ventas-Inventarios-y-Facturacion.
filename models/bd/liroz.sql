@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2020 a las 03:43:14
+-- Tiempo de generación: 22-10-2020 a las 18:02:10
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -72,10 +72,10 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `ultima_compra`, `fecha`) VALUES
-(1, 'John Fredy Bonilla', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '0000-00-00 00:00:00', '2020-10-19 16:58:02'),
-(2, 'Carlos Danilo Moncada', 1118643352, 'danimoncada@gmail.com', '(301) 341-6185', 'Calle 24 # 15-28', '1990-03-10', 18, '2020-10-20 19:44:14', '2020-10-21 00:51:17'),
-(3, 'Fabian Cely', 1118648630, 'cely123@gmail.com', '(310) 873-2637', 'calle 30 20-58 yopal casanare', '1989-10-20', 23, '0000-00-00 00:00:00', '2020-10-21 00:51:17'),
-(4, 'Maria Monica', 1116548759, 'mariacece@gmail.com', '(310) 782-7439', 'Carrera 10 # 20-12 Yopal casanare', '1991-06-15', 23, '2020-10-20 14:23:23', '2020-10-20 19:23:23');
+(1, 'John Fredy Bonilla', 1116546916, 'damilan1991@gmail.com', '(314) 419-6766', 'calle 30 12-28 calle 30 12-28', '1991-06-15', 0, '0000-00-00 00:00:00', '2020-10-22 15:13:02'),
+(2, 'Carlos Danilo Moncada', 1118643352, 'danimoncada@gmail.com', '(301) 341-6185', 'Calle 24 # 15-28', '1990-03-10', 23, '2020-10-22 10:18:44', '2020-10-22 15:18:44'),
+(3, 'Fabian Cely', 1118648630, 'cely123@gmail.com', '(310) 873-2637', 'calle 30 20-58 yopal casanare', '1989-10-20', 21, '2020-10-21 21:14:39', '2020-10-22 02:14:39'),
+(4, 'Maria Monica', 1116548759, 'mariacece@gmail.com', '(310) 782-7439', 'Carrera 10 # 20-12 Yopal casanare', '1991-06-15', 15, '2020-10-22 10:10:02', '2020-10-22 15:10:02');
 
 -- --------------------------------------------------------
 
@@ -101,26 +101,26 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
-(1, 1, '1001', 'Caja tipo hexagono grande', 'views/img/products/1001/832.jpg', 11, 8000, 12000, 9, '2020-10-21 00:51:17'),
-(2, 1, '1002', 'Caja tipo hexagono mediana', 'views/img/products/1002/911.jpg', 14, 6000, 10000, 6, '2020-10-21 00:51:17'),
-(3, 1, '1003', 'Caja  tipo hexagono pequena', 'views/img/products/1003/419.jpg', 14, 4000, 8000, 6, '2020-10-21 00:44:14'),
-(4, 1, '1004', 'Caja tipo hielera mediana', 'views/img/products/1004/841.png', 17, 8000, 12000, 3, '2020-10-20 16:34:55'),
-(5, 1, '1005', 'Caja tipo baul con tapa deslizante grande', '', 19, 10000, 20000, 1, '2020-10-20 16:34:55'),
-(6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 19, 8000, 160000, 1, '2020-10-20 16:34:55'),
-(7, 1, '1007', 'Caja cuadrada, mediana', '', 19, 4000, 8000, 1, '2020-10-20 16:34:55'),
+(1, 1, '1001', 'Caja tipo hexagono grande', 'views/img/products/1001/832.jpg', 13, 8000, 12000, 7, '2020-10-22 02:14:39'),
+(2, 1, '1002', 'Caja tipo hexagono mediana', 'views/img/products/1002/911.jpg', 14, 6000, 10000, 6, '2020-10-22 15:12:55'),
+(3, 1, '1003', 'Caja  tipo hexagono pequena', 'views/img/products/1003/419.jpg', 15, 4000, 8000, 5, '2020-10-22 02:14:39'),
+(4, 1, '1004', 'Caja tipo hielera mediana', 'views/img/products/1004/669.jpg', 20, 8000, 12000, 0, '2020-10-21 20:24:12'),
+(5, 1, '1005', 'Caja tipo baul con tapa deslizante grande', 'views/img/products/1005/243.jpg', 15, 10000, 20000, 5, '2020-10-22 15:13:10'),
+(6, 1, '1006', 'Caja tipo baul, con tapa deslizante, mediana.', '', 20, 8000, 160000, 0, '2020-10-21 18:31:38'),
+(7, 1, '1007', 'Caja cuadrada, mediana', '', 20, 4000, 8000, 4, '2020-10-22 01:51:30'),
 (8, 1, '1008', 'Caja tipo canasta, grande.', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
 (9, 1, '1009', 'Caja tipo canasta, mediana.', '', 20, 5000, 10000, 0, '0000-00-00 00:00:00'),
 (10, 1, '1010', 'Caja vinera, grande.', '', 20, 8000, 16000, 0, '0000-00-00 00:00:00'),
-(11, 1, '1011', 'Caja tipo mesa, grande.', '', 20, 7000, 14000, 0, '0000-00-00 00:00:00'),
-(12, 1, '1012', 'Caja tipo mesa, mediana', '', 20, 6000, 12000, 0, '0000-00-00 00:00:00'),
-(13, 1, '1013', 'Paquete de cubiertos, mediano.', '', 20, 1000, 2000, 0, '0000-00-00 00:00:00'),
+(11, 1, '1011', 'Caja tipo mesa, grande.', '', 19, 7000, 14000, 1, '2020-10-21 18:35:29'),
+(12, 1, '1012', 'Caja tipo mesa, mediana', '', 18, 6000, 12000, 2, '2020-10-21 18:35:51'),
+(13, 1, '1013', 'Paquete de cubiertos, mediano.', '', 17, 1000, 2000, 3, '2020-10-21 18:36:13'),
 (14, 2, '2001', 'Caja domicilio, grande.', '', 20, 800, 1600, 0, '0000-00-00 00:00:00'),
-(15, 2, '2002', 'Caja domicilio, peque?a.', '', 20, 400, 800, 0, '0000-00-00 00:00:00'),
-(16, 2, '2003', 'Caja tipo ventana ?nica, mediana.', '', 20, 1200, 2200, 0, '0000-00-00 00:00:00'),
-(17, 2, '2004', 'Caja tipo doble ventana, peque?a.', '', 20, 900, 2000, 0, '0000-00-00 00:00:00'),
-(18, 2, '2005', 'Caja dulcera, grande.', '', 20, 2900, 6000, 0, '0000-00-00 00:00:00'),
-(19, 2, '2006', 'Bolsa kraft, mediana.', '', 20, 600, 2000, 0, '0000-00-00 00:00:00'),
-(20, 2, '2007', 'Caja cuatro solapas, grande.', '', 20, 5000, 20000, 0, '0000-00-00 00:00:00'),
+(15, 2, '2002', 'Caja domicilio, peque?a.', '', 15, 400, 800, 5, '2020-10-22 15:10:02'),
+(16, 2, '2003', 'Caja tipo ventana ?nica, mediana.', '', 14, 1200, 2200, 6, '2020-10-22 15:18:44'),
+(17, 2, '2004', 'Caja tipo doble ventana, peque?a.', '', 19, 900, 2000, 1, '2020-10-21 18:36:43'),
+(18, 2, '2005', 'Caja dulcera, grande.', '', 19, 2900, 6000, 1, '2020-10-21 18:37:14'),
+(19, 2, '2006', 'Bolsa kraft, mediana.', '', 16, 600, 2000, 4, '2020-10-22 15:18:44'),
+(20, 2, '2007', 'Caja cuatro solapas, grande.', '', 17, 5000, 20000, 3, '2020-10-22 15:18:44'),
 (21, 2, '2008', 'Vaso para cupcake, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (22, 2, '2009', 'Vaso para cupcake, preque?o..', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (23, 2, '2010', 'Vaso para cupcake color, unico.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
@@ -143,7 +143,7 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 (40, 6, '6001', 'Te hatsu, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (41, 6, '6002', 'Te hatsu, peque?o.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
 (42, 6, '6003', 'Cerveza corona, grande.', '', 20, 0, 0, 0, '0000-00-00 00:00:00'),
-(45, 7, '7001', 'Cerveza Corona Botella 350ml', 'views/img/products/7001/782.jpg', 20, 3000, 4500, 0, '2020-10-19 16:43:52');
+(45, 7, '7001', 'Cerveza Corona Botella 350ml', 'views/img/products/7001/782.jpg', 10, 3000, 4500, 10, '2020-10-22 15:13:02');
 
 -- --------------------------------------------------------
 
@@ -168,9 +168,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-20 19:52:33', '2020-10-21 00:52:33'),
-(69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-20 14:23:33', '2020-10-20 19:23:33'),
-(71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-02 00:01:16');
+(58, 'John Fredy Bonilla ', 'jbonillaz', '$2a$07$asxx54ahjppf45sd87a5au3mHnZ.K6D7p7jdQakaRZcf4UDnl47L.', 'Administrador', 'views/img/users/jbonillaz/172.jpg', 1, '2020-10-22 08:47:37', '2020-10-22 13:47:37'),
+(69, 'Carlos Arnulfo Cogua', 'charlee', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/charlee/647.jpg', 1, '2020-10-22 10:14:48', '2020-10-22 15:14:48'),
+(71, 'Carlos Alberto Montoya', 'cmontoyac', '$2a$07$asxx54ahjppf45sd87a5auGZEtGHuyZwm.Ur.FJvWLCql3nmsMbXy', 'Administrador', 'views/img/users/cmontoyac/635.png', 1, '2020-10-01 19:01:16', '2020-10-21 14:10:45');
 
 -- --------------------------------------------------------
 
@@ -196,14 +196,15 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `id_cliente`, `id_vendedor`, `productos`, `impuesto`, `neto`, `total`, `metodo_pago`, `fecha`) VALUES
-(15, 10001, 3, 58, '[{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"2\",\"stock\":\"14\",\"precio\":\"10000\",\"total\":\"20000\"}]', 6080, 32000, 38080, 'Efectivo', '2020-10-21 00:51:17'),
-(16, 10002, 2, 58, '[{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"3\",\"stock\":\"16\",\"precio\":\"10000\",\"total\":\"30000\"},{\"id\":\"4\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"12000\",\"total\":\"24000\"}]', 10260, 54000, 64260, 'Efectivo', '2019-11-21 17:27:18'),
-(17, 10003, 4, 58, '[{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"3\",\"stock\":\"16\",\"precio\":\"12000\",\"total\":\"36000\"},{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"10000\",\"total\":\"10000\"},{\"id\":\"4\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"1\",\"stock\":\"17\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"3\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"8000\",\"total\":\"8000\"},{\"id\":\"5\",\"descripcion\":\"Caja tipo baul con tapa deslizante grande\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"20000\",\"total\":\"20000\"},{\"id\":\"6\",\"descripcion\":\"Caja tipo baul, con tapa deslizante, mediana.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"160000\",\"total\":\"160000\"},{\"id\":\"7\",\"descripcion\":\"Caja cuadrada, mediana\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"8000\",\"total\":\"8000\"}]', 48260, 254000, 302260, 'Efectivo', '2020-10-19 16:34:55'),
-(18, 10004, 2, 58, '[{\"id\":\"\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"12000\",\"total\":\"12000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"4\",\"stock\":\"13\",\"precio\":\"12000\",\"total\":\"48000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, mediana\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"12000\",\"total\":\"24000\"},{\"id\":\"\",\"descripcion\":\"Caja dulcera, grande.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"6000\",\"total\":\"18000\"}]', 19380, 102000, 121380, 'TC-568965847', '2020-08-18 19:22:42'),
-(19, 10005, 4, 58, '[{\"id\":\"\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"8000\",\"total\":\"16000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, grande.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"14000\",\"total\":\"42000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"4\",\"stock\":\"16\",\"precio\":\"2000\",\"total\":\"8000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo ventana ?nica, mediana.\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"2200\",\"total\":\"11000\"}]', 14630, 77000, 91630, 'TD-598745869', '2020-09-16 19:23:23'),
-(20, 10006, 3, 69, '[{\"id\":\"\",\"descripcion\":\"Caja tipo hielera mediana\",\"cantidad\":\"5\",\"stock\":\"12\",\"precio\":\"12000\",\"total\":\"60000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo mesa, grande.\",\"cantidad\":\"6\",\"stock\":\"14\",\"precio\":\"14000\",\"total\":\"84000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"2000\",\"total\":\"4000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"2000\",\"total\":\"10000\"}]', 30020, 158000, 188020, 'TC-58548569', '2020-09-24 19:24:09'),
-(21, 10007, 2, 69, '[{\"id\":\"\",\"descripcion\":\"Caja tipo canasta, grande.\",\"cantidad\":\"4\",\"stock\":\"16\",\"precio\":\"12000\",\"total\":\"48000\"},{\"id\":\"\",\"descripcion\":\"Seleccione el producto\",\"cantidad\":\"1\",\"stock\":\"-3\",\"precio\":\"\",\"total\":\"0\"},{\"id\":\"\",\"descripcion\":\"Caja tipo baul con tapa deslizante grande\",\"cantidad\":\"5\",\"stock\":\"14\",\"precio\":\"20000\",\"total\":\"100000\"},{\"id\":\"\",\"descripcion\":\"Caja tipo baul, con tapa deslizante, mediana.\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"160000\",\"total\":\"160000\"}]', 58520, 308000, 366520, 'Efectivo', '2020-10-20 19:25:35'),
-(22, 10008, 2, 58, '[{\"id\":\"3\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"5\",\"stock\":\"14\",\"precio\":\"8000\",\"total\":\"40000\"},{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"5\",\"stock\":\"11\",\"precio\":\"12000\",\"total\":\"60000\"}]', 19000, 100000, 119000, 'TC-789652', '2020-10-21 00:44:47');
+(28, 10001, 2, 58, '[{\"id\":\"11\",\"descripcion\":\"Caja tipo mesa, grande.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"14000\",\"total\":\"14000\"}]', 2660, 14000, 16660, 'TC-12356', '2020-01-21 19:35:29'),
+(29, 10002, 4, 58, '[{\"id\":\"12\",\"descripcion\":\"Caja tipo mesa, mediana\",\"cantidad\":\"2\",\"stock\":\"18\",\"precio\":\"12000\",\"total\":\"24000\"}]', 4560, 24000, 28560, 'TD-585', '2020-02-21 19:35:51'),
+(30, 10002, 3, 58, '[{\"id\":\"13\",\"descripcion\":\"Paquete de cubiertos, mediano.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"2000\",\"total\":\"6000\"}]', 1140, 6000, 7140, 'TC-5874898', '2020-03-21 19:36:13'),
+(31, 10002, 2, 58, '[{\"id\":\"16\",\"descripcion\":\"Caja tipo ventana ?nica, mediana.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2200\",\"total\":\"2200\"},{\"id\":\"17\",\"descripcion\":\"Caja tipo doble ventana, peque?a.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2000\",\"total\":\"2000\"}]', 798, 4200, 4998, 'Efectivo', '2020-04-21 18:36:43'),
+(32, 10002, 4, 58, '[{\"id\":\"16\",\"descripcion\":\"Caja tipo ventana ?nica, mediana.\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"2200\",\"total\":\"2200\"},{\"id\":\"18\",\"descripcion\":\"Caja dulcera, grande.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"6000\",\"total\":\"6000\"},{\"id\":\"19\",\"descripcion\":\"Bolsa kraft, mediana.\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2000\",\"total\":\"2000\"}]', 1938, 10200, 12138, 'TC-965896', '2020-05-21 18:37:14'),
+(35, 10004, 3, 58, '[{\"id\":\"45\",\"descripcion\":\"Cerveza Corona Botella 350ml\",\"cantidad\":\"10\",\"stock\":\"9\",\"precio\":\"4500\",\"total\":\"45000\"}]', 45000, 45000, 53550, 'Efectivo', '2020-10-22 15:13:38'),
+(36, 10005, 3, 58, '[{\"id\":\"3\",\"descripcion\":\"Caja  tipo hexagono pequena\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"8000\",\"total\":\"40000\"},{\"id\":\"2\",\"descripcion\":\"Caja tipo hexagono mediana\",\"cantidad\":\"6\",\"stock\":\"13\",\"precio\":\"10000\",\"total\":\"60000\"},{\"id\":\"1\",\"descripcion\":\"Caja tipo hexagono grande\",\"cantidad\":\"7\",\"stock\":\"13\",\"precio\":\"12000\",\"total\":\"84000\"}]', 34960, 184000, 218960, 'TC-34521', '2020-10-22 02:14:39'),
+(38, 10007, 4, 58, '[{\"id\":\"5\",\"descripcion\":\"Caja tipo baul con tapa deslizante grande\",\"cantidad\":\"5\",\"stock\":\"10\",\"precio\":\"20000\",\"total\":\"100000\"},{\"id\":\"15\",\"descripcion\":\"Caja domicilio, peque?a.\",\"cantidad\":\"5\",\"stock\":\"15\",\"precio\":\"800\",\"total\":\"4000\"}]', 19760, 104000, 123760, 'TD-125487', '2020-10-22 15:10:02'),
+(39, 10008, 2, 69, '[{\"id\":\"16\",\"descripcion\":\"Caja tipo ventana ?nica, mediana.\",\"cantidad\":\"4\",\"stock\":\"14\",\"precio\":\"2200\",\"total\":\"8800\"},{\"id\":\"20\",\"descripcion\":\"Caja cuatro solapas, grande.\",\"cantidad\":\"3\",\"stock\":\"17\",\"precio\":\"20000\",\"total\":\"60000\"},{\"id\":\"19\",\"descripcion\":\"Bolsa kraft, mediana.\",\"cantidad\":\"3\",\"stock\":\"16\",\"precio\":\"2000\",\"total\":\"6000\"}]', 14212, 74800, 89012, 'TC-632563256', '2020-10-22 15:18:44');
 
 --
 -- Índices para tablas volcadas
@@ -271,7 +272,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- Base de datos: `phpmyadmin`
 --
@@ -428,7 +429,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"liroz\",\"table\":\"ventas\"},{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"clientes\"},{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
+('root', '[{\"db\":\"liroz\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"productos\"},{\"db\":\"liroz\",\"table\":\"ventas\"},{\"db\":\"liroz\",\"table\":\"clientes\"},{\"db\":\"liroz\",\"table\":\"categorias\"},{\"db\":\"pos_liroz\",\"table\":\"users\"},{\"db\":\"pos\",\"table\":\"usuarios\"},{\"db\":\"liroz\",\"table\":\"pos\"}]');
 
 -- --------------------------------------------------------
 
@@ -522,7 +523,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\"}', '2020-10-19 16:43:44');
+('root', 'liroz', 'productos', '{\"sorted_col\":\"`id_categoria` ASC\",\"CREATE_TIME\":\"2020-10-01 15:43:52\"}', '2020-10-22 01:30:45');
 
 -- --------------------------------------------------------
 
@@ -560,7 +561,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2020-10-21 01:42:44', '{\"Console\\/Mode\":\"show\",\"lang\":\"es\"}');
+('root', '2020-10-22 15:45:16', '{\"Console\\/Mode\":\"show\",\"lang\":\"es\",\"Console\\/Height\":0}');
 
 -- --------------------------------------------------------
 
