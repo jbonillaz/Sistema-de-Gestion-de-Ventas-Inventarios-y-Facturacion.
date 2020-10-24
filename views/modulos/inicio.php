@@ -28,7 +28,11 @@
 
       <?php
 
-        include "inicio/cajas-superiores.php";
+         if($_SESSION["perfil"] =="Administrador"){
+
+            include "inicio/cajas-superiores.php";
+
+         }
 
       ?>
 
@@ -41,9 +45,11 @@
 
         <?php
 
+          if($_SESSION["perfil"] =="Administrador"){
 
-        include "reportes/grafico-ventas.php";
+            include "reportes/grafico-ventas.php";
 
+          }
 
         ?>
 
@@ -53,8 +59,12 @@
 
           <?php
 
-           include "reportes/productos-mas-vendidos.php";
 
+            if($_SESSION["perfil"] =="Administrador"){
+
+              include "reportes/productos-mas-vendidos.php";
+
+            }
 
           ?>
 
@@ -64,11 +74,37 @@
 
           <?php
 
-           include "inicio/productos-recientes.php";
+            if($_SESSION["perfil"] =="Administrador"){
+
+              include "inicio/productos-recientes.php";
+
+            }
 
           ?>
 
       </div>
+
+      <div class="col-lg-12">
+           
+          <?php
+
+          if($_SESSION["perfil"] =="Especial" || $_SESSION["perfil"] =="Vendedor"){
+
+             echo '<div class="box box-success">
+
+             <div class="box-header">
+
+             <h1>Sistema de Venta, Inventario y Facturación; <br>Bienvenid@ ' .$_SESSION["nombre"].'</h1>
+
+             </div>
+
+             </div>';
+
+          }
+
+          ?>
+
+         </div>
 
     </div>
 

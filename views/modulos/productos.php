@@ -1,3 +1,21 @@
+<?php
+
+if($_SESSION["perfil"] == "Vendedor"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
+
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -54,6 +72,9 @@
 
           </thead>
       </table>
+        <!-- ete inpunt es creado para poder hacer las restrincciones de ingreso a la tabla de productos. -->
+      <input type="hidden" id="perfilOculto" value="<?php echo$_SESSION["perfil"]?>">
+
       </div>
     </div>
   </section>
