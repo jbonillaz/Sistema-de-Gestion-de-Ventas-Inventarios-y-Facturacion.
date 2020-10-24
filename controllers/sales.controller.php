@@ -573,4 +573,20 @@ class SalesController{
 
     }
 
+        /*========================================
+        =        Suma de las ventas.      =
+        =============================================*/
+    
+    static public function ctrTotalSumSales(){
+
+        $tabla = "ventas";
+
+       
+        
+        $respuesta = SalesModel::mdlTotalSumSales($tabla);
+
+		return $respuesta;
+
+    }
+
 }

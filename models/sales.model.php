@@ -181,4 +181,23 @@ class SalesModel{
 
 	}
 
+		/*========================================
+        =      Suma total de ventas.
+		=============================================*/
+
+	static public function mdlTotalSumSales($tabla){
+
+		$stmt = Connection::connect()->prepare("SELECT SUM(neto) as total FROM $tabla");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		// $stmt -> close();
+
+		$stmt = null;
+
+
+	}
+
 }
