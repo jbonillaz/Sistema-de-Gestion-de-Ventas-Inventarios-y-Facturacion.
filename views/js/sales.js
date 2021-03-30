@@ -852,5 +852,16 @@ $(".tablas").on("click", ".btnImprimirFactura", function() {
 
     });
 
+    /*=============================================
+    Abrir el XML en una nueva pestaña del vanegador.
+    =============================================*/
 
 
+    $(".abrirXML").click(function(){
+
+      var archivo = $(this).attr("archivo");
+      window.open(archivo, "_blank");
+    
+    
+    });
+    

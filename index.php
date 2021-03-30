@@ -12,6 +12,7 @@ require_once "models/categories.model.php";
 require_once "models/products.model.php";
 require_once "models/clients.model.php";
 require_once "models/sales.model.php";
+// require_once "extensiones/vendor/autoload.php";
 
 $template = new ControllerTemplate();
 $template -> ctrTemplate();

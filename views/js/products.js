@@ -72,7 +72,7 @@ $("#nuevaCategoria").change(function () {
       // console.log("nuevoCodigo", nuevoCodigo);
 
       if (!respuesta) {
-        var nuevoCodigo = idCategoria + "001";
+        var nuevoCodigo = idCategoria + "0001";
         $("#nuevoCodigo").val(nuevoCodigo);
       } else {
         var nuevoCodigo = Number(respuesta["codigo"]) + 1;
@@ -170,12 +170,12 @@ $(".nuevaImagen").change(function () {
       type: "error",
       confirmButtonText: "¡Cerrar!",
     });
-  } else if (imagen["size"] > 2000000) {
+  } else if (imagen["size"] > 5000000) {
     $(".nuevaImagen").val("");
 
     swal({
       title: "Error al subir la imagen",
-      text: "¡La imagen no debe pesar más de 2MB!",
+      text: "¡La imagen no debe pesar más de 5MB!",
       type: "error",
       confirmButtonText: "¡Cerrar!",
     });

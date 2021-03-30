@@ -1,0 +1,1 @@
+[28-Mar-2021 10:20:58 America/New_York] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/llanubmq/public_html/llanosoft/extensions/tcpdf/pdf/factura.php on line 117

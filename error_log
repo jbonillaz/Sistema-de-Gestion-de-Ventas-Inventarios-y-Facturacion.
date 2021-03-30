@@ -1,0 +1,28 @@
+[27-Mar-2021 23:01:14 America/New_York] PHP Fatal error:  Uncaught PDOException: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/llanubmq/public_html/llanosoft/models/connection.php:9
+Stack trace:
+#0 /home/llanubmq/public_html/llanosoft/models/connection.php(9): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/llanubmq/public_html/llanosoft/models/users.model.php(13): Connection::connect()
+#2 /home/llanubmq/public_html/llanosoft/controllers/users.controller.php(23): ModelsUsers::Mdlshowusers('usuarios', 'usuario', 'llanosoft')
+#3 /home/llanubmq/public_html/llanosoft/views/modulos/login.php(44): ControllersUsers::ctrUserLogin()
+#4 /home/llanubmq/public_html/llanosoft/views/template.php(166): include('/home/llanubmq/...')
+#5 /home/llanubmq/public_html/llanosoft/controllers/template.controller.php(9): include('/home/llanubmq/...')
+#6 /home/llanubmq/public_html/llanosoft/index.php(18): ControllerTemplate::ctrTemplate()
+#7 {main}
+  thrown in /home/llanubmq/public_html/llanosoft/models/connection.php on line 9
+[27-Mar-2021 23:01:26 America/New_York] PHP Fatal error:  Uncaught PDOException: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/llanubmq/public_html/llanosoft/models/connection.php:9
+Stack trace:
+#0 /home/llanubmq/public_html/llanosoft/models/connection.php(9): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/llanubmq/public_html/llanosoft/models/users.model.php(13): Connection::connect()
+#2 /home/llanubmq/public_html/llanosoft/controllers/users.controller.php(23): ModelsUsers::Mdlshowusers('usuarios', 'usuario', 'llanosoft')
+#3 /home/llanubmq/public_html/llanosoft/views/modulos/login.php(44): ControllersUsers::ctrUserLogin()
+#4 /home/llanubmq/public_html/llanosoft/views/template.php(166): include('/home/llanubmq/...')
+#5 /home/llanubmq/public_html/llanosoft/controllers/template.controller.php(9): include('/home/llanubmq/...')
+#6 /home/llanubmq/public_html/llanosoft/index.php(18): ControllerTemplate::ctrTemplate()
+#7 {main}
+  thrown in /home/llanubmq/public_html/llanosoft/models/connection.php on line 9
+[28-Mar-2021 07:16:51 America/New_York] PHP Warning:  mkdir(): File exists in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 196
+[28-Mar-2021 07:36:05 America/New_York] PHP Warning:  imagejpeg(views/img/products/2010/303.jpg): failed to open stream: No such file or directory in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 219
+[28-Mar-2021 07:40:35 America/New_York] PHP Warning:  mkdir(): File exists in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 196
+[28-Mar-2021 09:13:06 America/New_York] PHP Warning:  imagejpeg(views/img/products/7008/915.jpg): failed to open stream: No such file or directory in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 219
+[28-Mar-2021 09:13:57 America/New_York] PHP Warning:  unlink(views/img/products/7008/915.jpg): No such file or directory in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 190
+[28-Mar-2021 09:13:57 America/New_York] PHP Warning:  imagejpeg(views/img/products/7008/437.jpg): failed to open stream: No such file or directory in /home/llanubmq/public_html/llanosoft/controllers/products.controller.php on line 219
